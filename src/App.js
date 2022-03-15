@@ -20,6 +20,14 @@ const App = () => {
   return (
     <>
       <h1>Music Collection App</h1>
+      {albums.map((album)=> {
+        return(
+          <div key={album.id} className="card">
+            <h3>{album.name}</h3>
+            <h5>{album.year}</h5>
+          </div>
+        )
+      })}
 
     </>
   )
