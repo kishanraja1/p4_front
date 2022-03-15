@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['localhost', 'young-savannah-30515.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'albums_api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
