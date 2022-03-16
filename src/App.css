@@ -45,12 +45,17 @@ details {
   text-align: center;
 }
 
+button {
+  padding: 0.25em 1em;
+  display: block;
+  margin: 1em;
+}
 
 button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
 	border: none;
-	padding: 0;
+	padding: 0px;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
