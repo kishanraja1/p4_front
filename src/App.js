@@ -5,9 +5,23 @@ import Add from './components/Add'
 import Edit from './components/Edit'
 import Footer from './components/Footer'
 
+/////// Material UI \\\\\\\
+//MUI Components
+import {
+  IconButton
+} from '@mui/material';
+
+//MUI Icons
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
 const App = () => {
+/////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
 
+/////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
     axios.get('https://young-savannah-30515.herokuapp.com/api/albums')
          .then(
@@ -45,11 +59,12 @@ const App = () => {
          })
   }
 
-
+/////// USE EFFECT \\\\\\\
   useEffect(() => {
     getAlbums()
   }, [])
 
+/////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <body>
       <h1>Music Collection App</h1>
@@ -60,8 +75,10 @@ const App = () => {
           return(
             <div key={album.id} className="card">
               <h3>{album.name}, {album.year}</h3>
-              <Edit handleUpdate={handleUpdate} album={album} />
-              <button onClick={() => {handleDelete(album)}}>Delete album</button>
+                <Edit handleUpdate={handleUpdate} album={album} />
+              <IconButton aria-label="delete">
+                <DeleteIcon onClick={() => {handleDelete(album)}} color="error" />
+              </IconButton>
             </div>
           )
         })}
