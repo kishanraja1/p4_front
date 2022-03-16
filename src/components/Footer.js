@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="engineer" id="nathan">
-          <h5>VNT</h5>
+          <h5>V. Nieto Thrower</h5>
           <div className="engineer-links-list">
             <a className="engineer-link" href="https://github.com/nietovaca" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" color="secondary"/></a>
             <a className="engineer-link" href="https://www.linkedin.com/in/vthrower/" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link"  color="secondary"/></a>
@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="engineer" id="nathan">
-          <h5>K</h5>
+          <h5>Kishan R.</h5>
           <div className="engineer-links-list">
             <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" color="success"/></a>
             <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link"  color="success"/></a>
