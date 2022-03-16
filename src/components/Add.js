@@ -13,7 +13,6 @@ const Add = (props) => {
     props.handleCreate(album)
   }
 
-  
   return (
     <div className="add-new-album">
       <details>

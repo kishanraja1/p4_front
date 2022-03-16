@@ -2,6 +2,8 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Add from './components/Add'
+import Edit from './components/Edit'
+import Footer from './components/Footer'
 
 const App = () => {
   const [albums, setAlbums] = useState([])
@@ -32,25 +34,39 @@ const App = () => {
          })
   }
 
+  const handleUpdate = (album2Update) => {
+    axios.put('https://young-savannah-30515.herokuapp.com/api/albums/' + album2Update.id, album2Update)
+         .then( (response) => {
+           setAlbums(
+             albums.map((album) => {
+               return album.id !== album2Update.id ? album : album2Update
+             })
+           )
+         })
+  }
+
 
   useEffect(() => {
     getAlbums()
   }, [])
 
   return (
-    <>
+    <body>
       <h1>Music Collection App</h1>
       <Add handleCreate={handleCreate} />
-      {albums.map((album)=> {
-        return(
-          <div key={album.id} className="card">
-            <h3>{album.name}, {album.year}</h3>
-            <button>Edit details</button>
-            <button onClick={() => {handleDelete(album)}}>Delete album</button>
-          </div>
-        )
-      })}
-    </>
+      <div className="album-container">
+        {albums.map((album)=> {
+          return(
+            <div key={album.id} className="card">
+              <h3>{album.name}, {album.year}</h3>
+              <Edit handleUpdate={handleUpdate} album={album} />
+              <button onClick={() => {handleDelete(album)}}>Delete album</button>
+            </div>
+          )
+        })}
+      </div>
+      <Footer />
+    </body>
   )
 }
 
