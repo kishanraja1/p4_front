@@ -53,6 +53,7 @@ const App = () => {
   return (
     <body>
       <h1>Music Collection App</h1>
+      <h2>Artists and Albums</h2>
       <Add handleCreate={handleCreate} />
       <div className="album-container">
         {albums.map((album)=> {
