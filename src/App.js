@@ -75,9 +75,9 @@ const App = () => {
           return(
             <div key={album.id} className="card">
               <h3>{album.name}, {album.year}</h3>
-              <Edit handleUpdate={handleUpdate} album={album} />
-              <IconButton aria-label="delete" >
-                <DeleteIcon color="error" onClick={() => {handleDelete(album)}}/>
+                <Edit handleUpdate={handleUpdate} album={album} />
+              <IconButton aria-label="delete">
+                <DeleteIcon onClick={() => {handleDelete(album)}} color="error" />
               </IconButton>
             </div>
           )
