@@ -1,8 +1,12 @@
 import {useState} from 'react'
 
 /////// Material UI \\\\\\\
+//MUI Components
+import Button from '@mui/material/Button';
+
 //MUI Icons
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 const Add = (props) => {
   let emptyAlbum = {name: '', year: 0}
@@ -20,13 +24,13 @@ const Add = (props) => {
   return (
     <div className="add-new-album">
       <details>
-        <summary><AddCircleIcon aria-label="Add New Music" color="success" sx={{ fontSize: 40 }}/></summary>
+        <summary><AddCircleIcon aria-label="Add New Music" color="success" sx={{ fontSize: 50 }}/></summary>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Album name: </label>
           <input type="text" name="name" placeholder="Thriller" onChange={handleChange}/><br/>
           <label htmlFor="year">Released: </label>
           <input type="number" name="year" placeholder="1982" onChange={handleChange}/><br/>
-          <input type="submit" />
+          <Button variant="outlined"><input type="submit"/></Button>
         </form>
       </details>
     </div>
