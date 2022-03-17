@@ -15,10 +15,9 @@ body {
 .TopNav {
   background-image: url('../public/AudiophileBanner.png');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center top;
-  height: 20vh;
-  padding: 1em;
+  height: 25vh;
+  /* padding: 1em; */
 }
 
 h1 {

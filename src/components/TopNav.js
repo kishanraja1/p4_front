@@ -18,14 +18,10 @@ const TopNav = (prop)  => {
           edge="start"
           color="secondary"
           aria-label="menu"
-          sx={{ mr: 2 }}
+          sx={{ m: 2 }}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" color="secondary" sx={{ flexGrow: 1 }}>
-          Audiophile
-        </Typography>
-        <Button color="secondary">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
