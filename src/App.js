@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
 import EditAlbum from './components/EditAlbum'
 import Footer from './components/Footer'
@@ -15,8 +16,6 @@ import {
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
-
 
 const App = () => {
 /////// STATE \\\\\\\
@@ -64,15 +63,15 @@ const App = () => {
   const albumMap = albums.map((album)=> {
     return(
       <div key={album.id} className="card">
-        <h3>{album.name}, {album.year}</h3>
-        <Typography component="h4">{album.artist ? album.artist : null}</Typography>
+        <h3>{album.name}</h3>
+        <h4>{album.year}</h4>
         <EditAlbum handleUpdate={handleUpdate} album={album} />
-        <IconButton aria-label="delete">
-          <DeleteIcon onClick={() => {handleDelete(album)}} color="error" />
-        </IconButton>
+          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} color="error" />
       </div>
     )
   })
+
+// <Typography component="h4">{album.artist}</Typography>
 
 /////// USE EFFECT \\\\\\\
   useEffect(() => {
@@ -81,7 +80,8 @@ const App = () => {
 
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
-    <body>
+    <>
+      <TopNav />
       <h1>Music Collection App</h1>
       <h2>Artists and Albums</h2>
       <div className="album-container">
@@ -89,7 +89,7 @@ const App = () => {
       </div>
       <AddAlbum handleCreate={handleCreate} />
       <Footer />
-    </body>
+    </>
   )
 }
 

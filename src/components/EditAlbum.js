@@ -55,14 +55,26 @@ const EditAlbum = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} component="form" onSubmit={(event) => {handleSubmit(event, album)}}>
-            <Typography id="modal-modal-title" variant="h6" component="h2" color="black">
+            <Typography id="modal-modal-title" variant="h5" color="black">
               Edit Album
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                <TextField  type="text" name="name" value={album.name} onChange={handleChange} color="primary" variant="outlined" sx={{margin: 1 }}/>
-              <TextField type="number" name="year" value={album.year} onChange={handleChange} color="primary" variant="outlined" sx={{margin: 1 }} />
+                <TextField
+                  type="text" name="name"
+                  value={album.name} onChange={handleChange}
+                  color="primary" variant="outlined"
+                  label = "Album"
+                  sx={{ m: 1 }}/>
+              <TextField
+                type="number" name="year"
+                value={album.year} onChange={handleChange}
+                color="primary" variant="outlined"
+                label = "Year"
+                sx={{ m: 1 }}/>
             </Typography>
-            <Button variant="outlined" color="primary" sx={{margin: 2, border: 2}}><input type="submit"/></Button>
+            <Button variant="outlined" color="primary" sx={{margin: 2, border: 2}}>
+              <input type="submit"/>
+            </Button>
         </Box>
       </Modal>
     </div>
@@ -70,3 +82,12 @@ const EditAlbum = (props) => {
 }
 
 export default EditAlbum
+
+/////// SAVING FOR WHEN WE ADD ARTISTS TO ALBUMS \\\\\\\\\
+// <TextField
+//   type="text" name="artist"
+//   value={album.artist} onChange={handleChange}
+//   color="primary" variant="outlined"
+//   label = "Artist"
+//   multiline maxRows={6}
+//   sx={{ m: 1 }}/>

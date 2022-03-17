@@ -26,7 +26,7 @@ const style = {
 
 const AddAlbum = (props) => {
   /////// STATE \\\\\\\
-  let emptyAlbum = {name: '', year: 0, artist: '',}
+  let emptyAlbum = {name: '', year: 0, }  //Saving for when we add artists to albums:  artist: '',
   const [album, setAlbum] = useState(emptyAlbum)
   const [open, setOpen] = useState(false);
 
@@ -55,27 +55,19 @@ const AddAlbum = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box component="form" sx={style} onSubmit={handleSubmit}>
-          <Typography id="modal-modal-title" variant="h5" component="h2" color="black">
+          <Typography variant="h6" color="black">
             Add Album
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography sx={{ mt: 2 }}>
             <TextField
-              type="text" name="name" onChange={handleChange}
+              name="name" onChange={handleChange}
               color="success" variant="outlined"
               label="Album"
-              multiline maxRows={4}
               sx={{ m: 1 }}/>
             <TextField
               type="number" name="year" onChange={handleChange}
               color="success" variant="outlined"
               label="Year"
-              multiline maxRows={4}
-              sx={{ m: 1 }}/>
-            <TextField
-              type="text" name="artist" onChange={handleChange}
-              color="success" variant="outlined"
-              label = "Artist"
-              multiline maxRows={4}
               sx={{ m: 1 }}/>
           </Typography>
           <Button variant="outlined" color="success" sx={{margin: 2, border: 2}}>
@@ -89,8 +81,10 @@ const AddAlbum = (props) => {
 
 export default AddAlbum
 
-// Form Graveyard
-// <label htmlFor="name">Album name: </label>
-// <input type="text" name="name" placeholder="Thriller" onChange={handleChange}/>
-// <label htmlFor="year">Released: </label>
-// <input type="number" name="year" placeholder="1982" onChange={handleChange}/><br/>
+/////// SAVING FOR WHEN WE ADD ARTISTS TO ALBUMS \\\\\\\\\
+// <TextField
+//   name="artist" onChange={handleChange}
+//   color="success" variant="outlined"
+//   label = "Artist"
+//   multiline maxRows={4}
+//   sx={{ m: 1 }}/>
