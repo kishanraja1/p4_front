@@ -13,7 +13,7 @@ import Modal from '@mui/material/Modal';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 //MODAL Style
-const style = {
+const styleModal = {
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -24,6 +24,15 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const styleButton = {
+  position: "absolute",
+  margin: 0,
+    top: '560',
+    right: 'auto',
+    bottom: 'auto',
+    left: '40',
+  }
 
 const AddAlbum = (props) => {
   /////// STATE \\\\\\\
@@ -51,15 +60,14 @@ const AddAlbum = (props) => {
 
   return (
     <div className="add-new-album">
-
-    <AddCircleIcon aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50 }} />
+    <AddCircleIcon aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50}} style={styleButton}/>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box component="form" sx={style} onSubmit={handleSubmit}>
+        <Box component="form" sx={styleModal} onSubmit={handleSubmit}>
           <Typography variant="h6" color="black">
             Add Album
           </Typography>
@@ -94,4 +102,3 @@ export default AddAlbum
 //   label = "Artist"
 //   multiline maxRows={4}
 //   sx={{ m: 1 }}/>
-

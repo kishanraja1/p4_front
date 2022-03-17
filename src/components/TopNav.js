@@ -16,16 +16,16 @@ const TopNav = (prop)  => {
         <IconButton
           size="large"
           edge="start"
-          color="inherit"
+          color="secondary"
           aria-label="menu"
           sx={{ mr: 2 }}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" color="secondary" sx={{ flexGrow: 1 }}>
           Audiophile
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button color="secondary">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

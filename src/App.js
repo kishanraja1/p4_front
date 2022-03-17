@@ -25,8 +25,6 @@ const App = () => {
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
 
-  ///////////////// Albums Functions ///////////////////
-
 /////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
     axios.get('https://young-savannah-30515.herokuapp.com/api/albums')
@@ -77,10 +75,9 @@ const App = () => {
     )
   })
 
-// <Typography component="h4">{album.artist}</Typography>
+// SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
 
-
-///////////////////// Artist Functions ///////////////////
+///////////////////// ARTIST CRUD ///////////////////
   const getArtists = () => {
     axios
     .get('https://young-savannah-30515.herokuapp.com/api/artists')
@@ -108,7 +105,6 @@ const App = () => {
          })
   }
 
-
   const handleUpdateArtist = (editArtist) => {
     axios.put('https://young-savannah-30515.herokuapp.com/api/artists/' + editArtist.id, editArtist)
     .then((response) => {
@@ -120,6 +116,7 @@ const App = () => {
     })
   }
 
+/////// USE EFFECT \\\\\\\\
   useEffect(() => {
     getArtists();
     getAlbums()
@@ -137,7 +134,6 @@ const App = () => {
       </div>
       <AddAlbum handleCreate={handleCreate} />
 
-
       <h2>Artists</h2>
       <AddArtist handleCreateArtist={handleCreateArtist} />
       <div className="album-container">
@@ -152,7 +148,6 @@ const App = () => {
           )
         })}
       </div>
-
       <Footer />
     </>
   )
