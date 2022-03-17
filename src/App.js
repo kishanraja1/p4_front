@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
@@ -127,35 +128,74 @@ const App = () => {
 
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
+    <Router>
     <>
       <TopNav />
       <h1>Music Collection App</h1>
-      <h2>Artists and Albums</h2>
+      <a href="http://localhost:3000/albums">Link to Albums</a>
+      <a href="http://localhost:3000/artists">Link to Artists</a>
+      <div className="content">
+        <Switch>
+          <Route path="/home">
+            <h1>This is the home route</h1>
+          </Route>
+          <Route path="/albums">
+          <h2>Albums</h2>
 
-      <div className="album-container">
-        {albumMap}
-      </div>
-      <AddAlbum handleCreate={handleCreate} />
+          <div className="album-container">
+            {albumMap}
+          </div>
+          <AddAlbum handleCreate={handleCreate} />
+          </Route>
 
-
-      <h2>Artists</h2>
-      <AddArtist handleCreateArtist={handleCreateArtist} />
-      <div className="album-container">
-        {artists.map((artist) => {
-          return (
-            <div key={artist.id} className="card">
-              <h4>Name: {artist.name}</h4>
-              <h5>Genre: {artist.genre}</h5>
-              <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-              <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
-            </div>
-          )
-        })}
+          <Route path="/artists">
+          <h2>Artists</h2>
+          <AddArtist handleCreateArtist={handleCreateArtist} />
+          <div className="album-container">
+            {artists.map((artist) => {
+              return (
+                <div key={artist.id} className="card">
+                  <h4>Name: {artist.name}</h4>
+                  <h5>Genre: {artist.genre}</h5>
+                  <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+                  <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+                </div>
+              )
+            })}
+          </div>
+          </Route>
+        </Switch>
       </div>
 
       <Footer />
     </>
+    </Router>
   )
 }
 
 export default App;
+
+
+
+// <h2>Albums</h2>
+//
+// <div className="album-container">
+//   {albumMap}
+// </div>
+// <AddAlbum handleCreate={handleCreate} />
+//
+//
+// <h2>Artists</h2>
+// <AddArtist handleCreateArtist={handleCreateArtist} />
+// <div className="album-container">
+//   {artists.map((artist) => {
+//     return (
+//       <div key={artist.id} className="card">
+//         <h4>Name: {artist.name}</h4>
+//         <h5>Genre: {artist.genre}</h5>
+//         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+//         <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+//       </div>
+//     )
+//   })}
+// </div>
