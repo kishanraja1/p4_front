@@ -49,7 +49,7 @@ const EditArtist = (props) => {
 
   return (
     <div className="edit-album">
-    <EditIcon aria-label="Edit" color="success" sx={{ fontSize: 30 }} onClick={handleOpen}/>
+    <EditIcon aria-label="Edit" color="primary" sx={{ fontSize: 30 }} onClick={handleOpen}/>
     <Modal
       open={open}
       onClose={handleClose}

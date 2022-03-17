@@ -70,8 +70,10 @@ const App = () => {
       <div key={album.id} className="card">
         <h3>{album.name}</h3>
         <h4>{album.year}</h4>
-        <EditAlbum handleUpdate={handleUpdate} album={album} />
-          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} color="error" sx={{color: "#ec407a"}}/>
+        <Grid direction="row" container alignItems="center" justify="center">
+          <EditAlbum handleUpdate={handleUpdate} album={album} />
+          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
+        </Grid>
       </div>
     )
   })
@@ -122,8 +124,10 @@ const artistsMap = artists.map((artist) => {
     <div key={artist.id} className="card">
       <h4>Name: {artist.name}</h4>
       <h5>Genre: {artist.genre}</h5>
-      <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-      <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
+      <Grid direction="row" container alignItems="center" justify="center">
+        <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+        <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
+      </Grid>
     </div>
   )
 })
@@ -138,7 +142,7 @@ const artistsMap = artists.map((artist) => {
   return (
     <>
       <TopNav />
-      <Typography variant="h2" component="h1">Albums</Typography>
+      <Typography variant="h2" component="h1">ALBUMS</Typography>
       <div>
         <Grid direction="column" container alignItems="center"justify="center">
           <AddAlbum handleCreate={handleCreate} />
@@ -147,7 +151,7 @@ const artistsMap = artists.map((artist) => {
           </div>
         </Grid>
       </div>
-      <Typography variant="h2" component="h1">Artists</Typography>
+      <Typography variant="h2" component="h1">ARTISTS</Typography>
       <div>
         <Grid direction="column" container alignItems="center"justify="center">
           <AddArtist handleCreateArtist={handleCreateArtist} />
