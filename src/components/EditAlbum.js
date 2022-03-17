@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 
+
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -19,10 +20,11 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: '#A8BAD2',
+  bgcolor: '#FF74C1',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  color: '#19196E'
 };
 
 const EditAlbum = (props) => {
@@ -60,24 +62,22 @@ const EditAlbum = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} component="form" onSubmit={(event) => {handleSubmit(event, album)}}>
-            <Typography id="modal-modal-title" variant="h5" color="black">
+            <Typography id="modal-modal-title" variant="h5" >
               Edit Album
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 <TextField
                   type="text" name="name"
                   value={album.name} onChange={handleChange}
-                  color="primary" variant="outlined"
-                  label = "Album"
-                  sx={{ m: 1 }}/>
+                  variant="outlined" label = "Album"
+                  sx={{ m: 1 , color:'#19196E'}}/>
               <TextField
                 type="number" name="year"
                 value={album.year} onChange={handleChange}
-                color="primary" variant="outlined"
-                label = "Year"
-                sx={{ m: 1 }}/>
+                variant="outlined" label = "Year"
+                sx={{ m: 1, color:'#19196E'}}/>
             </Typography>
-            <Button variant="outlined" color="primary" sx={{margin: 2, border: 2}}>
+            <Button variant="outlined" sx={{margin: 2, border: 2, color:"#19196E"}}>
               <input type="submit"/>
             </Button>
         </Box>

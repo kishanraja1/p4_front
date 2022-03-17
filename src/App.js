@@ -126,15 +126,13 @@ const App = () => {
   return (
     <>
       <TopNav />
-      <h1>Music Collection App</h1>
-      <h2>Artists and Albums</h2>
-
+      <Typography variant="h2" component="h1">Albums</Typography>
       <div className="album-container">
         {albumMap}
       </div>
       <AddAlbum handleCreate={handleCreate} />
 
-      <h2>Artists</h2>
+      <Typography variant="h2" component="h1">Artists</Typography>
       <AddArtist handleCreateArtist={handleCreateArtist} />
       <div className="album-container">
         {artists.map((artist) => {
