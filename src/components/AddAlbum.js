@@ -25,15 +25,6 @@ const styleModal = {
   color: '#19196E'
 };
 
-const styleButton = {
-  position: "absolute",
-  margin: 0,
-    top: '560',
-    right: 'auto',
-    bottom: 'auto',
-    left: '40',
-  }
-
 const AddAlbum = (props) => {
   /////// STATE \\\\\\\
   let emptyAlbum = {name: '', year: 0, }  //Saving for when we add artists to albums:  artist: '',
@@ -57,7 +48,7 @@ const AddAlbum = (props) => {
 
   return (
     <div className="add-new-album">
-    <AddCircleIcon aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50}} style={styleButton}/>
+    <AddCircleIcon className="addCircleIcon" aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50, padding: 1}}/>
       <Modal
         open={open}
         onClose={handleClose}
@@ -65,7 +56,7 @@ const AddAlbum = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box component="form" sx={styleModal} onSubmit={handleSubmit}>
-          <Typography variant="h6" color="black">
+          <Typography variant="h6">
             Add Album
           </Typography>
           <Typography sx={{ mt: 2 }}>
@@ -83,7 +74,6 @@ const AddAlbum = (props) => {
           </Button>
         </Box>
       </Modal>
-
     </div>
   )
 }

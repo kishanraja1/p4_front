@@ -13,7 +13,8 @@ import Footer from './components/Footer'
 //MUI Components
 import {
   IconButton,
-  Typography
+  Typography,
+  Grid
 } from '@mui/material';
 
 //MUI Icons
@@ -70,7 +71,7 @@ const App = () => {
         <h3>{album.name}</h3>
         <h4>{album.year}</h4>
         <EditAlbum handleUpdate={handleUpdate} album={album} />
-          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} color="error" />
+          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} color="error" sx={{color: "#ec407a"}}/>
       </div>
     )
   })
@@ -122,7 +123,7 @@ const artistsMap = artists.map((artist) => {
       <h4>Name: {artist.name}</h4>
       <h5>Genre: {artist.genre}</h5>
       <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-      <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+      <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
     </div>
   )
 })
@@ -138,15 +139,22 @@ const artistsMap = artists.map((artist) => {
     <>
       <TopNav />
       <Typography variant="h2" component="h1">Albums</Typography>
-      <div className="album-container">
-        {albumsMap}
+      <div>
+        <Grid direction="column" container alignItems="center"justify="center">
+          <AddAlbum handleCreate={handleCreate} />
+          <div className="album-container">
+            {albumsMap}
+          </div>
+        </Grid>
       </div>
-      <AddAlbum handleCreate={handleCreate} />
-
       <Typography variant="h2" component="h1">Artists</Typography>
-      <AddArtist handleCreateArtist={handleCreateArtist} />
-      <div className="album-container">
-        {artistsMap}
+      <div>
+        <Grid direction="column" container alignItems="center"justify="center">
+          <AddArtist handleCreateArtist={handleCreateArtist} />
+          <div className="album-container">
+            {artistsMap}
+          </div>
+        </Grid>
       </div>
       <Footer />
     </>

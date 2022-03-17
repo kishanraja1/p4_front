@@ -1,6 +1,5 @@
 import {useState} from 'react'
 
-
 /////// Material UI \\\\\\\
 // MUI Components
 import Box from '@mui/material/Box';
@@ -32,13 +31,11 @@ const EditAlbum = (props) => {
   const [album, setAlbum] = useState({...props.album})
   const [open, setOpen] = useState(false);
 
-
   /////// MODAL FUNC \\\\\\\
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   /////// EDIT FORM FUNC \\\\\\\
-
   const handleChange = (e) => {
     setAlbum({ ...album, [e.target.name]: e.target.value })
   }
@@ -47,13 +44,10 @@ const EditAlbum = (props) => {
     e.preventDefault()
     props.handleUpdate(album2Update)
     handleClose()
-
-
   }
 
   return (
     <div className="edit-album">
-
       <EditIcon aria-label="Edit" color="success" sx={{ fontSize: 30 }} onClick={handleOpen}/>
       <Modal
         open={open}

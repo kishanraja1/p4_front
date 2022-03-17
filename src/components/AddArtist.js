@@ -25,18 +25,10 @@ const styleModal = {
   color: '#19196E'
 };
 
-const styleButton = {
-  position: "absolute",
-  margin: 0,
-    top: '850',
-    right: 'auto',
-    bottom: 'auto',
-    left: '40',
-  }
 
 const AddArtist = (props) => {
   /////// STATE \\\\\\\
-  let emptyArtist = {name: '', age: '', genre: '',}
+  let emptyArtist = {name: '', genre: '', }
   const [artist, setArtist] = useState(emptyArtist)
   const [open, setOpen] = useState(false);
 
@@ -56,8 +48,8 @@ const AddArtist = (props) => {
   }
 
   return(
-    <>
-    <AddCircleIcon aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50}} style={styleButton}/>
+    <div>
+    <AddCircleIcon className="addCircleIcon" aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50, padding: 1}}/>
       <Modal
         open={open}
         onClose={handleClose}
@@ -65,17 +57,19 @@ const AddArtist = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box component="form" sx={styleModal} onSubmit={handleSubmitArtist}>
-          <Typography variant="h6" color="black">
+          <Typography variant="h6">
             Add Artist
           </Typography>
           <Typography sx={{ mt: 2 }}>
             <TextField
               name="name" onChange={handleChangeArtist}
               variant="outlined" label="Artist"
+               value={artist.name}
               sx={{ m: 1, color:'#19196E'}}/>
             <TextField
               name="genre" onChange={handleChangeArtist}
               variant="outlined" label="Genre"
+               value={artist.genre}
               sx={{ m: 1, color:'#19196E'}}/>
           </Typography>
           <Button variant="outlined" sx={{margin: 2, border: 2, color:'#19196E'}}>
@@ -83,20 +77,21 @@ const AddArtist = (props) => {
           </Button>
         </Box>
       </Modal>
-    <details>
-      <summary>Add New Artist</summary>
-      <form onSubmit={handleSubmitArtist}>
-        <label htmlFor="name">Artist name: </label>
-        <input type="text" name="name"  value={artist.name} onChange={handleChangeArtist}/><br/>
-        <label htmlFor="genre">Genre: </label>
-        <input type="text" name="genre" value={artist.genre} onChange={handleChangeArtist}/><br/>
-        <input type="submit" />
-      </form>
-    </details>
-    </>
+    </div>
 
   )
 
 }
 
 export default AddArtist
+
+// <details>
+//   <summary>Add New Artist</summary>
+//   <form onSubmit={handleSubmitArtist}>
+//     <label htmlFor="name">Artist name: </label>
+//     <input type="text" name="name"  value={artist.name} onChange={handleChangeArtist}/><br/>
+//     <label htmlFor="genre">Genre: </label>
+//     <input type="text" name="genre" value={artist.genre} onChange={handleChangeArtist}/><br/>
+//     <input type="submit" />
+//   </form>
+// </details>
