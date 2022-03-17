@@ -11,20 +11,20 @@ import TextField from '@mui/material/TextField';
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
 
-//MUI Style
+//MODAL Style
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 600,
   bgcolor: '#A8BAD2',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
 
-const Edit = (props) => {
+const EditAlbum = (props) => {
   /////// STATE \\\\\\\
   const [album, setAlbum] = useState({...props.album})
   const [open, setOpen] = useState(false);
@@ -42,6 +42,7 @@ const Edit = (props) => {
   const handleSubmit = (e, album2Update) => {
     e.preventDefault()
     props.handleUpdate(album2Update)
+    handleClose()
   }
 
   return (
@@ -61,11 +62,11 @@ const Edit = (props) => {
                 <TextField  type="text" name="name" value={album.name} onChange={handleChange} color="primary" variant="outlined" sx={{margin: 1 }}/>
               <TextField type="number" name="year" value={album.year} onChange={handleChange} color="primary" variant="outlined" sx={{margin: 1 }} />
             </Typography>
-            <Button variant="outlined" color="primary" sx={{margin: 2, border: 2}}><input type="submit" onClick={handleClose}/></Button>
+            <Button variant="outlined" color="primary" sx={{margin: 2, border: 2}}><input type="submit"/></Button>
         </Box>
       </Modal>
     </div>
   )
 }
 
-export default Edit
+export default EditAlbum

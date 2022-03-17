@@ -1,14 +1,15 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Add from './components/Add'
-import Edit from './components/Edit'
+import AddAlbum from './components/AddAlbum'
+import EditAlbum from './components/EditAlbum'
 import Footer from './components/Footer'
 
 /////// Material UI \\\\\\\
 //MUI Components
 import {
-  IconButton
+  IconButton,
+  Typography
 } from '@mui/material';
 
 //MUI Icons
@@ -59,6 +60,20 @@ const App = () => {
          })
   }
 
+/////// ALBUM MAP \\\\\\\
+  const albumMap = albums.map((album)=> {
+    return(
+      <div key={album.id} className="card">
+        <h3>{album.name}, {album.year}</h3>
+        <Typography component="h4">{album.artist ? album.artist : null}</Typography>
+        <EditAlbum handleUpdate={handleUpdate} album={album} />
+        <IconButton aria-label="delete">
+          <DeleteIcon onClick={() => {handleDelete(album)}} color="error" />
+        </IconButton>
+      </div>
+    )
+  })
+
 /////// USE EFFECT \\\\\\\
   useEffect(() => {
     getAlbums()
@@ -69,25 +84,13 @@ const App = () => {
     <body>
       <h1>Music Collection App</h1>
       <h2>Artists and Albums</h2>
-      <Add handleCreate={handleCreate} />
       <div className="album-container">
-        {albums.map((album)=> {
-          return(
-            <div key={album.id} className="card">
-              <h3>{album.name}, {album.year}</h3>
-                <Edit handleUpdate={handleUpdate} album={album} />
-              <IconButton aria-label="delete">
-                <DeleteIcon onClick={() => {handleDelete(album)}} color="error" />
-              </IconButton>
-            </div>
-          )
-        })}
+        {albumMap}
       </div>
+      <AddAlbum handleCreate={handleCreate} />
       <Footer />
     </body>
   )
 }
 
 export default App;
-
-// <Edit handleUpdate={handleUpdate} album={album} />
