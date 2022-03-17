@@ -64,7 +64,7 @@ const App = () => {
   }
 
 /////// ALBUM MAP \\\\\\\
-  const albumMap = albums.map((album)=> {
+  const albumsMap = albums.map((album)=> {
     return(
       <div key={album.id} className="card">
         <h3>{album.name}</h3>
@@ -74,7 +74,6 @@ const App = () => {
       </div>
     )
   })
-
 // SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
 
 ///////////////////// ARTIST CRUD ///////////////////
@@ -116,6 +115,18 @@ const App = () => {
     })
   }
 
+//////// ARTIST MAP \\\\\\\
+const artistsMap = artists.map((artist) => {
+  return(
+    <div key={artist.id} className="card">
+      <h4>Name: {artist.name}</h4>
+      <h5>Genre: {artist.genre}</h5>
+      <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+      <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+    </div>
+  )
+})
+
 /////// USE EFFECT \\\\\\\\
   useEffect(() => {
     getArtists();
@@ -128,23 +139,14 @@ const App = () => {
       <TopNav />
       <Typography variant="h2" component="h1">Albums</Typography>
       <div className="album-container">
-        {albumMap}
+        {albumsMap}
       </div>
       <AddAlbum handleCreate={handleCreate} />
 
       <Typography variant="h2" component="h1">Artists</Typography>
       <AddArtist handleCreateArtist={handleCreateArtist} />
       <div className="album-container">
-        {artists.map((artist) => {
-          return (
-            <div key={artist.id} className="card">
-              <h4>Name: {artist.name}</h4>
-              <h5>Genre: {artist.genre}</h5>
-              <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-              <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
-            </div>
-          )
-        })}
+        {artistsMap}
       </div>
       <Footer />
     </>
