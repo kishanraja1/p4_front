@@ -12,6 +12,10 @@ body {
   min-width: 95vw;
 }
 
+.TopNav {
+  background-image: url('../public/AudiophileBanner.png');
+}
+
 h1 {
   margin: 1em auto;
   text-align: center;
