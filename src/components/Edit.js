@@ -1,5 +1,9 @@
 import {useState} from 'react'
 
+/////// Material UI \\\\\\\
+//MUI Icons
+import EditIcon from '@mui/icons-material/Edit';
+
 const Edit = (props) => {
   const [album, setAlbum] = useState({...props.album})
 
@@ -11,17 +15,17 @@ const Edit = (props) => {
     e.preventDefault()
     props.handleUpdate(album2Update)
   }
-  
+
   return (
     <div className="edit-album">
       <details>
-        <summary>Edit Album</summary>
+        <summary><EditIcon color="primary"/></summary>
         <form onSubmit={(event) => {handleSubmit(event, album)}}>
           <label htmlFor="name">Album name: </label>
           <input type="text" name="name" value={album.name} onChange={handleChange}/><br/>
           <label htmlFor="year">Released: </label>
           <input type="number" name="year" value={album.year} onChange={handleChange}/><br/>
-          <input type="submit" value="Update this album now" /> 
+          <input type="submit" value="Update this album now" />
         </form>
       </details>
     </div>
