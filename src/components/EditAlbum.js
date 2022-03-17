@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const Edit = (props) => {
+const EditAlbum = (props) => {
   const [album, setAlbum] = useState({...props.album})
 
   const handleChange = (e) => {
@@ -28,4 +28,4 @@ const Edit = (props) => {
   )
 }
 
-export default Edit
+export default EditAlbum
