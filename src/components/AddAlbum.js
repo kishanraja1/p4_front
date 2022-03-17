@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const Add = (props) => {
+const AddAlbum = (props) => {
   let emptyAlbum = {name: '', year: 0}
   const [album, setAlbum] = useState(emptyAlbum)
 
@@ -22,11 +22,11 @@ const Add = (props) => {
           <input type="text" name="name" placeholder="Thriller" onChange={handleChange}/><br/>
           <label htmlFor="year">Released: </label>
           <input type="number" name="year" placeholder="1982" onChange={handleChange}/><br/>
-          <input type="submit" /> 
+          <input type="submit" />
         </form>
       </details>
     </div>
   )
 }
 
-export default Add
+export default AddAlbum

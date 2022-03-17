@@ -1,9 +1,9 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Add from './components/Add'
+import AddAlbum from './components/AddAlbum'
 import AddArtist from './components/AddArtist'
-import Edit from './components/Edit'
+import EditAlbum from './components/EditAlbum'
 import EditArtist from './components/EditArtist'
 import Footer from './components/Footer'
 
@@ -101,13 +101,13 @@ const App = () => {
     <body>
       <h1>Music Collection App</h1>
       <h2>Artists and Albums</h2>
-      <Add handleCreate={handleCreate} />
+      <AddAlbum handleCreate={handleCreate} />
       <div className="album-container">
         {albums.map((album)=> {
           return(
             <div key={album.id} className="card">
               <h3>{album.name}, {album.year}</h3>
-              <Edit handleUpdate={handleUpdate} album={album} />
+              <EditAlbum handleUpdate={handleUpdate} album={album} />
               <button onClick={() => {handleDelete(album)}}>Delete album</button>
             </div>
           )
