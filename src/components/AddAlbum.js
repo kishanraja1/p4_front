@@ -1,5 +1,6 @@
 import {useState} from 'react'
 
+
 /////// Material UI \\\\\\\
 //MUI Components
 import Button from '@mui/material/Button';
@@ -35,6 +36,8 @@ const AddAlbum = (props) => {
   const handleClose = () => setOpen(false);
 
   /////// ADD FUNC \\\\\\\
+
+
   const handleChange = (e) => {
     setAlbum({...album, [e.target.name]: e.target.value})
   }
@@ -42,11 +45,13 @@ const AddAlbum = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleCreate(album)
+
     handleClose()
   }
 
   return (
     <div className="add-new-album">
+
     <AddCircleIcon aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50 }} />
       <Modal
         open={open}
@@ -75,6 +80,7 @@ const AddAlbum = (props) => {
           </Button>
         </Box>
       </Modal>
+
     </div>
   )
 }
@@ -88,3 +94,4 @@ export default AddAlbum
 //   label = "Artist"
 //   multiline maxRows={4}
 //   sx={{ m: 1 }}/>
+

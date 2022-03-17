@@ -1,5 +1,6 @@
 import {useState} from 'react'
 
+
 /////// Material UI \\\\\\\
 // MUI Components
 import Box from '@mui/material/Box';
@@ -35,6 +36,7 @@ const EditAlbum = (props) => {
   const handleClose = () => setOpen(false);
 
   /////// EDIT FORM FUNC \\\\\\\
+
   const handleChange = (e) => {
     setAlbum({ ...album, [e.target.name]: e.target.value })
   }
@@ -43,10 +45,13 @@ const EditAlbum = (props) => {
     e.preventDefault()
     props.handleUpdate(album2Update)
     handleClose()
+
+
   }
 
   return (
     <div className="edit-album">
+
       <EditIcon aria-label="Edit" color="success" sx={{ fontSize: 30 }} onClick={handleOpen}/>
       <Modal
         open={open}
@@ -82,6 +87,7 @@ const EditAlbum = (props) => {
 }
 
 export default EditAlbum
+
 
 /////// SAVING FOR WHEN WE ADD ARTISTS TO ALBUMS \\\\\\\\\
 // <TextField
