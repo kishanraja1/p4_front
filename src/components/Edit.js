@@ -11,7 +11,7 @@ const Edit = (props) => {
     e.preventDefault()
     props.handleUpdate(album2Update)
   }
-  
+
   return (
     <div className="edit-album">
       <details>
@@ -21,7 +21,7 @@ const Edit = (props) => {
           <input type="text" name="name" value={album.name} onChange={handleChange}/><br/>
           <label htmlFor="year">Released: </label>
           <input type="number" name="year" value={album.year} onChange={handleChange}/><br/>
-          <input type="submit" value="Update this album now" /> 
+          <input type="submit" value="Update this album now" />
         </form>
       </details>
     </div>
