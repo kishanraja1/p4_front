@@ -1,18 +1,33 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+
+import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
 import AddArtist from './components/AddArtist'
 import EditAlbum from './components/EditAlbum'
 import EditArtist from './components/EditArtist'
 import Footer from './components/Footer'
 
+/////// Material UI \\\\\\\
+//MUI Components
+import {
+  IconButton,
+  Typography
+} from '@mui/material';
+
+//MUI Icons
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 const App = () => {
+/////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
 
   ///////////////// Albums Functions ///////////////////
 
+/////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
     axios.get('https://young-savannah-30515.herokuapp.com/api/albums')
          .then(
@@ -49,6 +64,20 @@ const App = () => {
            )
          })
   }
+
+/////// ALBUM MAP \\\\\\\
+  const albumMap = albums.map((album)=> {
+    return(
+      <div key={album.id} className="card">
+        <h3>{album.name}</h3>
+        <h4>{album.year}</h4>
+        <EditAlbum handleUpdate={handleUpdate} album={album} />
+          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} color="error" />
+      </div>
+    )
+  })
+
+// <Typography component="h4">{album.artist}</Typography>
 
 
 ///////////////////// Artist Functions ///////////////////
@@ -91,28 +120,23 @@ const App = () => {
     })
   }
 
-
   useEffect(() => {
     getArtists();
     getAlbums()
   }, [])
 
+/////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
-    <body>
+    <>
+      <TopNav />
       <h1>Music Collection App</h1>
       <h2>Artists and Albums</h2>
-      <AddAlbum handleCreate={handleCreate} />
+
       <div className="album-container">
-        {albums.map((album)=> {
-          return(
-            <div key={album.id} className="card">
-              <h3>{album.name}, {album.year}</h3>
-              <EditAlbum handleUpdate={handleUpdate} album={album} />
-              <button onClick={() => {handleDelete(album)}}>Delete album</button>
-            </div>
-          )
-        })}
+        {albumMap}
       </div>
+      <AddAlbum handleCreate={handleCreate} />
+
 
       <h2>Artists</h2>
       <AddArtist handleCreateArtist={handleCreateArtist} />
@@ -128,8 +152,9 @@ const App = () => {
           )
         })}
       </div>
+
       <Footer />
-    </body>
+    </>
   )
 }
 
