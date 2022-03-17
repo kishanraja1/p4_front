@@ -1,6 +1,5 @@
 import {useState} from 'react'
 
-
 /////// Material UI \\\\\\\
 //MUI Components
 import Button from '@mui/material/Button';
@@ -46,8 +45,6 @@ const AddAlbum = (props) => {
   const handleClose = () => setOpen(false);
 
   /////// ADD FUNC \\\\\\\
-
-
   const handleChange = (e) => {
     setAlbum({...album, [e.target.name]: e.target.value})
   }
@@ -55,7 +52,6 @@ const AddAlbum = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleCreate(album)
-
     handleClose()
   }
 
