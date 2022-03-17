@@ -89,3 +89,5 @@ const App = () => {
 }
 
 export default App;
+
+// <Edit handleUpdate={handleUpdate} album={album} />

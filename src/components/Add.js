@@ -6,10 +6,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-
 //MUI Icons
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-
 
 const Add = (props) => {
   let emptyAlbum = {name: '', year: 0}
@@ -27,7 +25,7 @@ const Add = (props) => {
   return (
     <div className="add-new-album">
       <details>
-        <summary><AddCircleIcon aria-label="Add New Music" color="success" sx={{ fontSize: 50 }}/></summary>
+        <summary><AddCircleIcon aria-label="Add New Music" color="primary" sx={{ fontSize: 50 }} /></summary>
         <Box component="form" onSubmit={handleSubmit}>
           <TextField  color="success" variant="outlined" name="name" onChange={handleChange}/>
           <TextField type="number" color="success" variant="outlined" name="year" onChange={handleChange}/><br/>
