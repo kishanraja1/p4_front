@@ -7,6 +7,7 @@ import AddArtist from './AddArtist'
 import EditAlbum from './EditAlbum'
 import EditArtist from './EditArtist'
 import Footer from './Footer'
+import Carousel from './Carousel'
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -25,22 +26,7 @@ const Landing = (props) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <>
-      <TopNav />
-      <Typography variant="h2" component="h1">ALBUMS</Typography>
-      <div>
-        <Grid direction="column" container alignItems="center"justify="center">
-          <div className="album-container">
-          </div>
-        </Grid>
-      </div>
-      <Typography variant="h2" component="h1">ARTISTS</Typography>
-      <div>
-        <Grid direction="column" container alignItems="center"justify="center">
-          <div className="album-container">
-          </div>
-        </Grid>
-      </div>
-      <Footer />
+            <Carousel />
     </>
   )
 }

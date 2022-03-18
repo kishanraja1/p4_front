@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import Landing from './components/Landing.js'
+import Carousel from './components/Carousel.js'
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
 import AddArtist from './components/AddArtist'
@@ -148,7 +148,7 @@ const artistsMap = artists.map((artist) => {
           <a href="https://murmuring-forest-19651.herokuapp.com/artists">Link to Artists</a>
         <Switch>
           <Route path="/home">
-            <Landing />
+            <Carousel />
           </Route>
           <Route path="/albums">
             <Typography variant="h2" component="h1">ALBUMS</Typography>

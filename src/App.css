@@ -1,3 +1,5 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 *,
 *:before,
 *:after {
@@ -49,6 +51,28 @@ a {
 
 .add-new-album {
   margin: 1em;
+}
+
+.landingCarousel {
+  width: 100%;
+  margin: 0 auto;
+  height: 800px;
+}
+
+.slide img {
+  width: 25rem;
+  margin: 0 auto;
+}
+
+.slide {
+  transform: scale(0.5);
+  transition: transform 200ms;
+  opacity: .8;
+}
+
+.activeSlide {
+  transform: scale(1.0);
+  opacity: 1;
 }
 
 .album-container {
