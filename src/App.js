@@ -144,8 +144,8 @@ const artistsMap = artists.map((artist) => {
   return (
     <Router>
         <TopNav />
-          <a href="http://localhost:3000/albums">Link to Albums</a>
-          <a href="http://localhost:3000/artists">Link to Artists</a>
+          <a href="https://murmuring-forest-19651.herokuapp.com/albums">Link to Albums</a>
+          <a href="https://murmuring-forest-19651.herokuapp.com/artists">Link to Artists</a>
         <Switch>
           <Route path="/home">
             <Landing />
