@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
+import Landing from './components/Landing.js'
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
 import AddArtist from './components/AddArtist'
