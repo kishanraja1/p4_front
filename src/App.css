@@ -58,13 +58,17 @@ h1 {
   padding: 2em;
   width: 80vw;
   margin: 0 auto 2em;
+  background-color: #fc9842;
+  background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
 }
 
 .card {
   width: 250px;
   padding: 0.25em;
-  border: 1px solid black;
+  border: 1px solid orange;
+  box-shadow: 5px 5px 50px black;
   text-align: center;
+  background: midnightblue;
 }
 
 details {
