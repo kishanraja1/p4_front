@@ -68,21 +68,21 @@ const TopNav = (props)  => {
             </IconButton>
             <Divider sx={{mb: 2}} />
             <Box sx={{mb: 2}}>
-              <ListItemButton onClick={window.location.href="https://murmuring-forest-19651.herokuapp.com/albums"}>
+              <ListItemButton onClick={()=>{window.location.href="http://localhost:3000/albums"}}>
                 <ListItemIcon>
                   <AlbumIcon sx={{color: "primary.main"}} />
                 </ListItemIcon>
                 <ListItemText primary="Albums" />
               </ListItemButton>
 
-              <ListItemButton onClick={window.location.href="https://murmuring-forest-19651.herokuapp.com/artists"}>
+              <ListItemButton onClick={()=>{window.location.href="http://localhost:3000/artists"}}>
                 <ListItemIcon>
                   <PersonIcon sx={{color: "primary.main"}}/>
                 </ListItemIcon >
                 <ListItemText primary="Artists" />
               </ListItemButton>
 
-              <ListItemButton onClick={window.location.href="https://murmuring-forest-19651.herokuapp.com/home"}>
+              <ListItemButton onClick={()=>{window.location.href="http://localhost:3000/home"}}>
                 <ListItemIcon>
                   <HomeIcon sx={{color: "primary.main"}} />
                 </ListItemIcon>

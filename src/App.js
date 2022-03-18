@@ -177,28 +177,3 @@ const artistsMap = artists.map((artist) => {
 }
 
 export default App;
-
-
-
-// <h2>Albums</h2>
-//
-// <div className="album-container">
-//   {albumMap}
-// </div>
-// <AddAlbum handleCreate={handleCreate} />
-//
-//
-// <h2>Artists</h2>
-// <AddArtist handleCreateArtist={handleCreateArtist} />
-// <div className="album-container">
-//   {artists.map((artist) => {
-//     return (
-//       <div key={artist.id} className="card">
-//         <h4>Name: {artist.name}</h4>
-//         <h5>Genre: {artist.genre}</h5>
-//         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-//         <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
-//       </div>
-//     )
-//   })}
-// </div>
