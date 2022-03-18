@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import Landing from './components/Landing.js'
+import Carousel from './components/Carousel.js'
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
 import AddArtist from './components/AddArtist'
@@ -144,11 +144,9 @@ const artistsMap = artists.map((artist) => {
   return (
     <Router>
         <TopNav />
-          <a href="https://murmuring-forest-19651.herokuapp.com/albums">Link to Albums</a>
-          <a href="https://murmuring-forest-19651.herokuapp.com/artists">Link to Artists</a>
         <Switch>
           <Route path="/home">
-            <Landing />
+            <Carousel />
           </Route>
           <Route path="/albums">
             <Typography variant="h2" component="h1">ALBUMS</Typography>
@@ -179,28 +177,3 @@ const artistsMap = artists.map((artist) => {
 }
 
 export default App;
-
-
-
-// <h2>Albums</h2>
-//
-// <div className="album-container">
-//   {albumMap}
-// </div>
-// <AddAlbum handleCreate={handleCreate} />
-//
-//
-// <h2>Artists</h2>
-// <AddArtist handleCreateArtist={handleCreateArtist} />
-// <div className="album-container">
-//   {artists.map((artist) => {
-//     return (
-//       <div key={artist.id} className="card">
-//         <h4>Name: {artist.name}</h4>
-//         <h5>Genre: {artist.genre}</h5>
-//         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-//         <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
-//       </div>
-//     )
-//   })}
-// </div>
