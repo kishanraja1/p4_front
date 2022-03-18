@@ -10,6 +10,9 @@ import AddArtist from './components/AddArtist'
 import EditAlbum from './components/EditAlbum'
 import EditArtist from './components/EditArtist'
 import Footer from './components/Footer'
+import LoginButton from './components/LoginButton'
+import LogoutButton from './components/LogoutButton'
+import Profile from './components/Profile'
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -143,9 +146,14 @@ const artistsMap = artists.map((artist) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <Router>
+    <div>
+    <LoginButton />
+    <LogoutButton />
+    <Profile />
+    </div>
         <TopNav />
-          <a href="https://murmuring-forest-19651.herokuapp.com/albums">Link to Albums</a>
-          <a href="https://murmuring-forest-19651.herokuapp.com/artists">Link to Artists</a>
+          <a href="http://localhost:3000/albums">Link to Albums</a>
+          <a href="http://localhost:3000/artists">Link to Artists</a>
         <Switch>
           <Route path="/home">
             <Landing />
