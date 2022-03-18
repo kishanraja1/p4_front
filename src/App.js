@@ -143,44 +143,38 @@ const artistsMap = artists.map((artist) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <Router>
-    <>
-      <TopNav />
-      <h1>Music Collection App</h1>
-      <a href="http://localhost:3000/albums">Link to Albums</a>
-      <a href="http://localhost:3000/artists">Link to Artists</a>
-      <div className="content">
+        <TopNav />
+          <a href="http://localhost:3000/albums">Link to Albums</a>
+          <a href="http://localhost:3000/artists">Link to Artists</a>
         <Switch>
           <Route path="/home">
-            <h1>This is the home route</h1>
+            <Landing />
           </Route>
           <Route path="/albums">
-          <Typography variant="h2" component="h1">ALBUMS</Typography>
-      <div>
-        <Grid direction="column" container alignItems="center"justify="center">
-          <AddAlbum handleCreate={handleCreate} />
-          <div className="album-container">
-            {albumsMap}
-          </div>
-        </Grid>
-      </div>
+            <Typography variant="h2" component="h1">ALBUMS</Typography>
+            <div>
+              <Grid direction="column" container alignItems="center"justify="center">
+                <AddAlbum handleCreate={handleCreate} />
+                <div className="album-container">
+                  {albumsMap}
+                </div>
+              </Grid>
+            </div>
           </Route>
-
           <Route path="/artists">
-          <Typography variant="h2" component="h1">ARTISTS</Typography>
-      <div>
-        <Grid direction="column" container alignItems="center"justify="center">
-          <AddArtist handleCreateArtist={handleCreateArtist} />
-          <div className="album-container">
-            {artistsMap}
-          </div>
-        </Grid>
+            <Typography variant="h2" component="h1">ARTISTS</Typography>
+            <div>
+              <Grid direction="column" container alignItems="center"justify="center">
+                <AddArtist handleCreateArtist={handleCreateArtist} />
+                <div className="album-container">
+                  {artistsMap}
+                </div>
+              </Grid>
+            </div>
           </Route>
         </Switch>
-
-      </div>
       <Footer />
-    </>
-    </Router>
+  </Router>
   )
 }
 
