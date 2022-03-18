@@ -32,6 +32,8 @@ const APIAlbumTest = (props) => {
 
   const handleGetSpotifyAlbumData = (e) => {
     e.preventDefault()
+    // https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
+    // helped us figure out how to execute this particular post request
     fetch('http://localhost:8000/api/albums/spotify_album', {
       credentials: 'include',
       method: 'POST',
@@ -41,10 +43,18 @@ const APIAlbumTest = (props) => {
         'Content-Type': 'application/json',
         'X-CSRFToken': csrftoken
       },
-      body: searchQuery
+      body: JSON.stringify({
+        search_query: searchQuery
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setAlbum(data)
+      setShowAlbum(true)
     })
   
-    // axios.post('http://localhost:8000/api/albums/spotify_album', searchQuery, {headers: headers})
+    // axios.get('http://localhost:8000/api/albums/spotify_album')
     //      .then((response) => {
     //        console.log(response.data)
     //        setAlbum(response.data)
@@ -66,6 +76,7 @@ const APIAlbumTest = (props) => {
             <h2>{album.name}</h2>
             <h3>{album.year}</h3>
             <button className="btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>Add this album to the site</button>
+            <button onClick={() => {setShowAlbum(false)}}>Go Back</button>
           </div>
           :
           <form onSubmit={handleGetSpotifyAlbumData}>
