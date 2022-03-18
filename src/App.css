@@ -14,6 +14,28 @@ body {
 
 .TopNav {
   background-image: url('../public/AudiophileBanner.png');
+  background-size: cover;
+  background-position: center center;
+  /* background-repeat: no-repeat; */
+  /* background-attachment: initial; */
+  height: 25vh;
+  /* padding: 1em; */
+}
+
+button {
+  padding: 0.25em 1em;
+  display: block;
+  margin: 1em;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 h1 {
@@ -40,52 +62,23 @@ a {
   padding: 2em;
   width: 80vw;
   margin: 0 auto 2em;
+  background-color: #fc9842;
+  background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
 }
 
 .card {
   width: 250px;
   padding: 0.25em;
-  border: 1px solid black;
+  border: 1px solid #fc9842;
+  box-shadow: 5px 5px 50px black;
   text-align: center;
+  background: midnightblue;
 }
 
-details {
-  text-align: center;
-}
-
-button {
-  padding: 0.25em 1em;
-  display: block;
-  margin: 1em;
-}
-
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0px;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-
-
-/* DETAILS & SUMMARY ELEMS */
-details>summary {
-  list-style-type: none;
-  outline: none;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-details>summary::-webkit-details-marker {
-  display: none;
-}
-
-details[open]>summary {
-  margin-bottom: 0.5rem;
-}
+/* .modal {
+  background-color: #bd4f6c;
+  background-image: linear-gradient(326deg, #bd4f6c 0%, #d7816a 74%);
+} */
 
 /* FOOTER ELEMS */
 footer h3 {
