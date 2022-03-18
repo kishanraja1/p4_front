@@ -11,6 +11,8 @@ import EditAlbum from './components/EditAlbum'
 import EditArtist from './components/EditArtist'
 import Footer from './components/Footer'
 
+import APIAlbumTest from './components/APIAlbumTest'
+
 /////// Material UI \\\\\\\
 //MUI Components
 import {
@@ -171,6 +173,9 @@ const artistsMap = artists.map((artist) => {
                 </div>
               </Grid>
             </div>
+          </Route>
+          <Route path="/apitest">
+            <APIAlbumTest />
           </Route>
         </Switch>
       <Footer />
