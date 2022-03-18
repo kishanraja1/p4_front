@@ -1,7 +1,9 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
+import Landing from './components/Landing.js'
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
 import AddArtist from './components/AddArtist'
@@ -13,7 +15,8 @@ import Footer from './components/Footer'
 //MUI Components
 import {
   IconButton,
-  Typography
+  Typography,
+  Grid
 } from '@mui/material';
 
 //MUI Icons
@@ -24,8 +27,6 @@ const App = () => {
 /////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
-
-  ///////////////// Albums Functions ///////////////////
 
 /////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
@@ -66,21 +67,21 @@ const App = () => {
   }
 
 /////// ALBUM MAP \\\\\\\
-  const albumMap = albums.map((album)=> {
+  const albumsMap = albums.map((album)=> {
     return(
       <div key={album.id} className="card">
         <h3>{album.name}</h3>
         <h4>{album.year}</h4>
-        <EditAlbum handleUpdate={handleUpdate} album={album} />
-          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} color="error" />
+        <Grid direction="row" container alignItems="center" justify="center">
+          <EditAlbum handleUpdate={handleUpdate} album={album} />
+          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
+        </Grid>
       </div>
     )
   })
+// SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
 
-// <Typography component="h4">{album.artist}</Typography>
-
-
-///////////////////// Artist Functions ///////////////////
+///////////////////// ARTIST CRUD ///////////////////
   const getArtists = () => {
     axios
     .get('https://young-savannah-30515.herokuapp.com/api/artists')
@@ -108,7 +109,6 @@ const App = () => {
          })
   }
 
-
   const handleUpdateArtist = (editArtist) => {
     axios.put('https://young-savannah-30515.herokuapp.com/api/artists/' + editArtist.id, editArtist)
     .then((response) => {
@@ -120,6 +120,21 @@ const App = () => {
     })
   }
 
+//////// ARTIST MAP \\\\\\\
+const artistsMap = artists.map((artist) => {
+  return(
+    <div key={artist.id} className="card">
+      <h4>Name: {artist.name}</h4>
+      <h5>Genre: {artist.genre}</h5>
+      <Grid direction="row" container alignItems="center" justify="center">
+        <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+        <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
+      </Grid>
+    </div>
+  )
+})
+
+/////// USE EFFECT \\\\\\\\
   useEffect(() => {
     getArtists();
     getAlbums()
@@ -127,35 +142,65 @@ const App = () => {
 
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
-    <>
-      <TopNav />
-      <h1>Music Collection App</h1>
-      <h2>Artists and Albums</h2>
-
-      <div className="album-container">
-        {albumMap}
-      </div>
-      <AddAlbum handleCreate={handleCreate} />
-
-
-      <h2>Artists</h2>
-      <AddArtist handleCreateArtist={handleCreateArtist} />
-      <div className="album-container">
-        {artists.map((artist) => {
-          return (
-            <div key={artist.id} className="card">
-              <h4>Name: {artist.name}</h4>
-              <h5>Genre: {artist.genre}</h5>
-              <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-              <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+    <Router>
+        <TopNav />
+          <a href="http://localhost:3000/albums">Link to Albums</a>
+          <a href="http://localhost:3000/artists">Link to Artists</a>
+        <Switch>
+          <Route path="/home">
+            <Landing />
+          </Route>
+          <Route path="/albums">
+            <Typography variant="h2" component="h1">ALBUMS</Typography>
+            <div>
+              <Grid direction="column" container alignItems="center"justify="center">
+                <AddAlbum handleCreate={handleCreate} />
+                <div className="album-container">
+                  {albumsMap}
+                </div>
+              </Grid>
             </div>
-          )
-        })}
-      </div>
-
+          </Route>
+          <Route path="/artists">
+            <Typography variant="h2" component="h1">ARTISTS</Typography>
+            <div>
+              <Grid direction="column" container alignItems="center"justify="center">
+                <AddArtist handleCreateArtist={handleCreateArtist} />
+                <div className="album-container">
+                  {artistsMap}
+                </div>
+              </Grid>
+            </div>
+          </Route>
+        </Switch>
       <Footer />
-    </>
+  </Router>
   )
 }
 
 export default App;
+
+
+
+// <h2>Albums</h2>
+//
+// <div className="album-container">
+//   {albumMap}
+// </div>
+// <AddAlbum handleCreate={handleCreate} />
+//
+//
+// <h2>Artists</h2>
+// <AddArtist handleCreateArtist={handleCreateArtist} />
+// <div className="album-container">
+//   {artists.map((artist) => {
+//     return (
+//       <div key={artist.id} className="card">
+//         <h4>Name: {artist.name}</h4>
+//         <h5>Genre: {artist.genre}</h5>
+//         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+//         <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+//       </div>
+//     )
+//   })}
+// </div>

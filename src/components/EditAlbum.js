@@ -1,6 +1,5 @@
 import {useState} from 'react'
 
-
 /////// Material UI \\\\\\\
 // MUI Components
 import Box from '@mui/material/Box';
@@ -8,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
+
 
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
@@ -19,10 +19,11 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: '#A8BAD2',
+  bgcolor: '#E8665D',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  color: '#19196E'
 };
 
 const EditAlbum = (props) => {
@@ -30,13 +31,11 @@ const EditAlbum = (props) => {
   const [album, setAlbum] = useState({...props.album})
   const [open, setOpen] = useState(false);
 
-
   /////// MODAL FUNC \\\\\\\
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   /////// EDIT FORM FUNC \\\\\\\
-
   const handleChange = (e) => {
     setAlbum({ ...album, [e.target.name]: e.target.value })
   }
@@ -45,14 +44,11 @@ const EditAlbum = (props) => {
     e.preventDefault()
     props.handleUpdate(album2Update)
     handleClose()
-
-
   }
 
   return (
     <div className="edit-album">
-
-      <EditIcon aria-label="Edit" color="success" sx={{ fontSize: 30 }} onClick={handleOpen}/>
+      <EditIcon aria-label="Edit" color="primary" sx={{ fontSize: 30 }} onClick={handleOpen}/>
       <Modal
         open={open}
         onClose={handleClose}
@@ -60,24 +56,27 @@ const EditAlbum = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} component="form" onSubmit={(event) => {handleSubmit(event, album)}}>
-            <Typography id="modal-modal-title" variant="h5" color="black">
+            <Typography id="modal-modal-title" variant="h5" >
               Edit Album
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 <TextField
-                  type="text" name="name"
-                  value={album.name} onChange={handleChange}
-                  color="primary" variant="outlined"
-                  label = "Album"
-                  sx={{ m: 1 }}/>
+                  name="name" value={album.name}
+                  onChange={handleChange}
+                  variant="outlined" label = "Album"
+                  sx={{ m: 1 , color:'#19196E'}}/>
               <TextField
                 type="number" name="year"
                 value={album.year} onChange={handleChange}
-                color="primary" variant="outlined"
-                label = "Year"
-                sx={{ m: 1 }}/>
+                variant="outlined" label = "Year"
+                sx={{ m: 1, color:'#19196E'}}/>
+              <TextField
+                name="image" value={album.image} 
+                onChange={handleChange}
+                variant="outlined" label="Image URL"
+                sx={{ m: 1, color:'#19196E'}}/>
             </Typography>
-            <Button variant="outlined" color="primary" sx={{margin: 2, border: 2}}>
+            <Button variant="outlined" sx={{margin: 2, border: 2, color:"#19196E"}}>
               <input type="submit"/>
             </Button>
         </Box>
