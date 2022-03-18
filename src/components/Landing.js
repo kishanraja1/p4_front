@@ -29,16 +29,13 @@ const Landing = (props) => {
       <Typography variant="h2" component="h1">ALBUMS</Typography>
       <div>
         <Grid direction="column" container alignItems="center"justify="center">
-
           <div className="album-container">
-
           </div>
         </Grid>
       </div>
       <Typography variant="h2" component="h1">ARTISTS</Typography>
       <div>
         <Grid direction="column" container alignItems="center"justify="center">
-
           <div className="album-container">
           </div>
         </Grid>
