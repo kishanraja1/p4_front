@@ -175,7 +175,7 @@ const artistsMap = artists.map((artist) => {
             </div>
           </Route>
           <Route path="/apitest">
-            <APIAlbumTest />
+            <APIAlbumTest handleCreate={handleCreate}/>
           </Route>
         </Switch>
       <Footer />
