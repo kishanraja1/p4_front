@@ -19,7 +19,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: '#FF74C1',
+  bgcolor: '#E8665D',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -61,14 +61,19 @@ const EditAlbum = (props) => {
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 <TextField
-                  type="text" name="name"
-                  value={album.name} onChange={handleChange}
+                  name="name" value={album.name}
+                  onChange={handleChange}
                   variant="outlined" label = "Album"
                   sx={{ m: 1 , color:'#19196E'}}/>
               <TextField
                 type="number" name="year"
                 value={album.year} onChange={handleChange}
                 variant="outlined" label = "Year"
+                sx={{ m: 1, color:'#19196E'}}/>
+              <TextField
+                name="image" value={album.image} 
+                onChange={handleChange}
+                variant="outlined" label="Image URL"
                 sx={{ m: 1, color:'#19196E'}}/>
             </Typography>
             <Button variant="outlined" sx={{margin: 2, border: 2, color:"#19196E"}}>

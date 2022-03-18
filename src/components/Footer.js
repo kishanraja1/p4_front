@@ -31,9 +31,9 @@ const Footer = () => {
         <div className="engineer" id="nathan">
           <h5>Kishan R.</h5>
           <div className="engineer-links-list">
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" color="success"/></a>
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link"  color="success"/></a>
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><InstagramIcon aria-label="Instagram Link"  color="success"/></a>
+            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" sx={{color: '#fc9842'}}/></a>
+            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link" sx={{color: '#fc9842'}}/></a>
+            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><InstagramIcon aria-label="Instagram Link" sx={{color: '#fc9842'}}/></a>
           </div>
         </div>
       </div>

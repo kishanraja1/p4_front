@@ -18,7 +18,7 @@ const styleModal = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: '#FF74C1',
+  bgcolor: '#E8665D',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -28,7 +28,7 @@ const styleModal = {
 
 const AddArtist = (props) => {
   /////// STATE \\\\\\\
-  let emptyArtist = {name: '', genre: '', }
+  let emptyArtist = {name: '', genre: '', image: '',}
   const [artist, setArtist] = useState(emptyArtist)
   const [open, setOpen] = useState(false);
 
@@ -55,6 +55,7 @@ const AddArtist = (props) => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className="modal"
       >
         <Box component="form" sx={styleModal} onSubmit={handleSubmitArtist}>
           <Typography variant="h6">
@@ -71,6 +72,11 @@ const AddArtist = (props) => {
               variant="outlined" label="Genre"
                value={artist.genre}
               sx={{ m: 1, color:'#19196E'}}/>
+            <TextField
+              name="image" onChange={handleChangeArtist}
+              variant="outlined" label="Image URL"
+               value={artist.image}
+              sx={{ m: 1, color:'#19196E'}}/>
           </Typography>
           <Button variant="outlined" sx={{margin: 2, border: 2, color:'#19196E'}}>
             <input type="submit"/>
@@ -84,14 +90,3 @@ const AddArtist = (props) => {
 }
 
 export default AddArtist
-
-// <details>
-//   <summary>Add New Artist</summary>
-//   <form onSubmit={handleSubmitArtist}>
-//     <label htmlFor="name">Artist name: </label>
-//     <input type="text" name="name"  value={artist.name} onChange={handleChangeArtist}/><br/>
-//     <label htmlFor="genre">Genre: </label>
-//     <input type="text" name="genre" value={artist.genre} onChange={handleChangeArtist}/><br/>
-//     <input type="submit" />
-//   </form>
-// </details>

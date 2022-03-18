@@ -19,7 +19,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: '#FF74C1',
+  bgcolor: '#E8665D',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -71,6 +71,11 @@ const EditArtist = (props) => {
               value={artist.genre} onChange={handleChange}
               variant="outlined" label = "Album"
               sx={{ m: 1 , color:'#19196E'}}/>
+            <TextField
+              name="image" value={artist.image}
+              onChange={handleChange}
+              variant="outlined" label="Image URL"
+              sx={{ m: 1, color:'#19196E'}}/>
           </Typography>
           <Button variant="outlined" sx={{margin: 2, border: 2, color:"#19196E"}}>
             <input type="submit"/>

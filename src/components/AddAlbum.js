@@ -18,7 +18,7 @@ const styleModal = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: '#FF74C1',
+  bgcolor: '#E8665D',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -27,7 +27,7 @@ const styleModal = {
 
 const AddAlbum = (props) => {
   /////// STATE \\\\\\\
-  let emptyAlbum = {name: '', year: 0, }  //Saving for when we add artists to albums:  artist: '',
+  let emptyAlbum = {name: '', year: 0, image: '', }  //Saving for when we add artists to albums:  artist: '',
   const [album, setAlbum] = useState(emptyAlbum)
   const [open, setOpen] = useState(false);
 
@@ -54,6 +54,7 @@ const AddAlbum = (props) => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className="modal"
       >
         <Box component="form" sx={styleModal} onSubmit={handleSubmit}>
           <Typography variant="h6">
@@ -67,6 +68,10 @@ const AddAlbum = (props) => {
             <TextField
               type="number" name="year" onChange={handleChange}
               variant="outlined" label="Year"
+              sx={{ m: 1, color:'#19196E'}}/>
+            <TextField
+              name="image" onChange={handleChange}
+              variant="outlined" label="Image URL"
               sx={{ m: 1, color:'#19196E'}}/>
           </Typography>
           <Button variant="outlined" sx={{margin: 2, border: 2, color:'#19196E'}}>
