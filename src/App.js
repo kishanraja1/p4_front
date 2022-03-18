@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Landing from './components/Landing.js'
 import TopNav from './components/TopNav'
@@ -141,9 +142,19 @@ const artistsMap = artists.map((artist) => {
 
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
+    <Router>
     <>
       <TopNav />
-      <Typography variant="h2" component="h1">ALBUMS</Typography>
+      <h1>Music Collection App</h1>
+      <a href="http://localhost:3000/albums">Link to Albums</a>
+      <a href="http://localhost:3000/artists">Link to Artists</a>
+      <div className="content">
+        <Switch>
+          <Route path="/home">
+            <h1>This is the home route</h1>
+          </Route>
+          <Route path="/albums">
+          <Typography variant="h2" component="h1">ALBUMS</Typography>
       <div>
         <Grid direction="column" container alignItems="center"justify="center">
           <AddAlbum handleCreate={handleCreate} />
@@ -152,7 +163,10 @@ const artistsMap = artists.map((artist) => {
           </div>
         </Grid>
       </div>
-      <Typography variant="h2" component="h1">ARTISTS</Typography>
+          </Route>
+
+          <Route path="/artists">
+          <Typography variant="h2" component="h1">ARTISTS</Typography>
       <div>
         <Grid direction="column" container alignItems="center"justify="center">
           <AddArtist handleCreateArtist={handleCreateArtist} />
@@ -160,10 +174,39 @@ const artistsMap = artists.map((artist) => {
             {artistsMap}
           </div>
         </Grid>
+          </Route>
+        </Switch>
+
       </div>
       <Footer />
     </>
+    </Router>
   )
 }
 
 export default App;
+
+
+
+// <h2>Albums</h2>
+//
+// <div className="album-container">
+//   {albumMap}
+// </div>
+// <AddAlbum handleCreate={handleCreate} />
+//
+//
+// <h2>Artists</h2>
+// <AddArtist handleCreateArtist={handleCreateArtist} />
+// <div className="album-container">
+//   {artists.map((artist) => {
+//     return (
+//       <div key={artist.id} className="card">
+//         <h4>Name: {artist.name}</h4>
+//         <h5>Genre: {artist.genre}</h5>
+//         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+//         <button onClick={() => {handleDeleteArtist(artist)}}>Delete</button>
+//       </div>
+//     )
+//   })}
+// </div>
