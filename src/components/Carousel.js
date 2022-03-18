@@ -5,8 +5,11 @@ import Slider from "react-slick";
 // MUI
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 //STOCK IMAGES
+  //Albums
 import big from "./carouImgs/BIG.jpg"
 import blink from "./carouImgs/blink.jpg"
 import boss from "./carouImgs/boss.jpg"
@@ -24,19 +27,23 @@ import judas from "./carouImgs/judas.jpg"
 import kendrick from "./carouImgs/kendrick.jpg"
 import lizzo from "./carouImgs/lizzo.jpeg"
 import metallica from "./carouImgs/metallica.jpg"
+import miles from "./carouImgs/miles.jpg"
+import msjackson from "./carouImgs/msjackson.jpg"
+import nas from "./carouImgs/nas.jpg"
+import nodoubt from "./carouImgs/nodoubt.jpg"
+import parlamient from "./carouImgs/parlamient.jpg"
+import sgtpepp from "./carouImgs/sgtpepp.jpg"
+import tswift from "./carouImgs/tswift.jpg"
+import ye from "./carouImgs/ye.jpg"
+  //Artists
 
 /// IMG ARRAY FOR MAPPING
-const imagesArray = [big, blink, boss, bowie, cardi, cash, clash,
-  drake,
-  duran,
-  fleetwood,
-  floyd,
-  gaga,
-  joydivision,
-  judas,
-  kendrick,
-  lizzo,
-  metallica,
+const albumsArray = [big, blink, boss, bowie, cardi, cash, clash, drake,
+  duran, fleetwood, floyd, gaga, joydivision, judas, kendrick, lizzo,
+  metallica, miles, msjackson, nas, nodoubt, parlamient, sgtpepp, tswift, ye,]
+
+const artistsArray = [
+
 ]
 
 const Carousel = (props) => {
@@ -61,7 +68,7 @@ const Carousel = (props) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     lazyLoad: true,
     centerMode: true,
@@ -78,16 +85,35 @@ const Carousel = (props) => {
   };
 
     return (
-        <div className="landingCarousel">
-          <Slider {...settings}>
-            {imagesArray.map((img, id) => (
-              <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
-                <img src={img} alt={img} />
-              </div>
-            ))}
-          </Slider>
-        </div>
+      <>
+      <div className="landingCarousel">
+        <Slider {...settings}>
+          {albumsArray.map((img, id) => (
+            <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
+              <img src={img} alt={img} />
+            </div>
+          ))}
+        </Slider>
+        <Typography item variant="h3" align= 'center'>
+          <Box sx={{m: 1, p: 1}} >Albums</Box>
+        </Typography>
+      </div>
+      </>
       );
     }
 
 export default Carousel;
+
+// Saving for when we have spotify data for artists
+// <div className="landingCarousel">
+//   <Slider {...settings}>
+//     {artistsArray.map((img, id) => (
+//       <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
+//         <img src={img} alt={img} />
+//       </div>
+//     ))}
+//   </Slider>
+//   <Typography item variant="h3" align= 'center'>
+//     <Box sx={{m: 1, p: 1}} >Artists</Box>
+//   </Typography>
+// </div>
