@@ -132,3 +132,9 @@ footer h3 {
   display: inline;
   padding-right: 0.5em;
 }
+
+#userImg {
+  height:100px;
+  width:100px;
+  border-radius: 20%
+}

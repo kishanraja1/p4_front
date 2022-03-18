@@ -10,6 +10,9 @@ import AddArtist from './components/AddArtist'
 import EditAlbum from './components/EditAlbum'
 import EditArtist from './components/EditArtist'
 import Footer from './components/Footer'
+import LoginButton from './components/LoginButton'
+import LogoutButton from './components/LogoutButton'
+import Profile from './components/Profile'
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -143,6 +146,11 @@ const artistsMap = artists.map((artist) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <Router>
+    <div>
+    <LoginButton />
+    <LogoutButton />
+    <Profile />
+    </div>
         <TopNav />
         <Switch>
           <Route path="/home">
