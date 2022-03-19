@@ -90,6 +90,17 @@ a {
   background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
 }
 
+.album-image, .artist-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.query-div {
+  width: 70%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
 .card {
   width: 250px;
   padding: 0.25em;
@@ -97,6 +108,51 @@ a {
   box-shadow: 5px 5px 50px black;
   text-align: center;
   background: midnightblue;
+}
+
+.spotify-card {
+  width: 320px;
+  padding: 0.25em;
+  margin: 1em auto;
+  border: 1px solid #fc9842;
+  box-shadow: 5px 5px 50px black;
+  text-align: center;
+  background: midnightblue;
+  position: relative;
+}
+
+.card-add-btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 1.5em;
+  padding: 0.25em;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 26.5px;
+  transition: all .4s ease-out;
+  background: rgba(0,0,0,.4);
+  border-radius: 10px;
+}
+
+.card-add-btn:hover {
+  width: 200px;
+}
+
+.card-back-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 1.5em;
+  padding: 0.25em;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 26.5px;
+  transition: all .4 ease-out;
+  background: rgba(0,0,0,.4);
+  border-radius: 10px;
 }
 
 /* .modal {
@@ -133,8 +189,3 @@ footer h3 {
   padding-right: 0.5em;
 }
 
-#userImg {
-  height:100px;
-  width:100px;
-  border-radius: 20%
-}
