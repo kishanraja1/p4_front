@@ -128,6 +128,7 @@ const App = () => {
   }
 
 //////// ARTIST MAP \\\\\\\
+
 const artistsMap = artists.map((artist) => {
   return(
     <div key={artist.id} className="card">

@@ -78,8 +78,8 @@ const ArtistQuery = (props) => {
             <img className="artist-image" src={artist.image} height="320" width="320"/>
             <h2>{artist.name}</h2>
             <h3>{artist.genre}</h3>
-            <button className="btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}>Add this artist to the site</button>
-            <button onClick={() => {setShowArtist(false)}}>Back</button>
+            <button className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}>+  <span className="btn-text">Add to database</span></button>
+            <button className="card-back-btn" onClick={() => {setShowArtist(false)}}>X</button>
           </div>
           :
           <form onSubmit={handleGetSpotifyArtistData}>

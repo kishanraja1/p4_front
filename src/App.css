@@ -118,7 +118,43 @@ a {
   box-shadow: 5px 5px 50px black;
   text-align: center;
   background: midnightblue;
+  position: relative;
 }
+
+.card-add-btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 1.5em;
+  padding: 0.25em;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 26.5px;
+  transition: all .4s ease-out;
+  background: rgba(0,0,0,.4);
+  border-radius: 10px;
+}
+
+.card-add-btn:hover {
+  width: 200px;
+}
+
+.card-back-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 1.5em;
+  padding: 0.25em;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 26.5px;
+  transition: all .4 ease-out;
+  background: rgba(0,0,0,.4);
+  border-radius: 10px;
+}
+
 /* .modal {
   background-color: #bd4f6c;
   background-image: linear-gradient(326deg, #bd4f6c 0%, #d7816a 74%);

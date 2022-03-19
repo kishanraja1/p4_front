@@ -78,7 +78,7 @@ const AlbumQuery = (props) => {
             <img className="album-image" src={album.image} height="320" width="320"/>
             <h2>{album.name}</h2>
             <h3>{album.year}</h3>
-            <button className="btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>Add this album to the site</button>
+            <button className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>+  <span className="btn-text">Add to database</span></button>
             <button onClick={() => {setShowAlbum(false)}}>Go Back</button>
           </div>
           :
