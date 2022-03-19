@@ -21,7 +21,7 @@ const getCookie = (name) => {
 
 const csrftoken = getCookie('csrftoken')
 
-const APIAlbumTest = (props) => {
+const AlbumQuery = (props) => {
   const [album, setAlbum] = useState({name: 'Default album name', year: 2022, image: "default image path"})
   const [showAlbum, setShowAlbum] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -69,7 +69,9 @@ const APIAlbumTest = (props) => {
 
   return (
     <div>
-      <h1>Spotify API Album Test page</h1>
+      <h1>Find albums from Spotify's massive library</h1>
+      <h2>Are we missing an awesome album that you think should be on our list of the best albums ever??</h2>
+      <h4>Search the Spotify library using our API client, and then add it to our collection!</h4>
       { showAlbum ?
           <div className="spotify-card">
             <img src={album.image} height="320" width="320"/>
@@ -91,4 +93,4 @@ const APIAlbumTest = (props) => {
   )
 }
 
-export default APIAlbumTest
+export default AlbumQuery

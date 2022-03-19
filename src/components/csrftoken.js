@@ -1,5 +1,3 @@
-
-
 const csrftoken = getCookie('csrftoken');
 
 const CSRFToken = () => {
