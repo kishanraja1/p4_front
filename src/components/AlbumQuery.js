@@ -69,12 +69,13 @@ const AlbumQuery = (props) => {
 
   return (
     <div>
-      <h1>Find albums from Spotify's massive library</h1>
-      <h2>Are we missing an awesome album that you think should be on our list of the best albums ever??</h2>
-      <h4>Search the Spotify library using our API client, and then add it to our collection!</h4>
-      { showAlbum ?
+      <div className="query-div">
+        <h1>Find albums from Spotify's massive library</h1>
+        <h2>Are we missing an awesome album that you think should be in our database??</h2>
+        <h4>Search the Spotify library using our API client, and then add it to our collection!</h4>
+        { showAlbum ?
           <div className="spotify-card">
-            <img src={album.image} height="320" width="320"/>
+            <img className="album-image" src={album.image} height="320" width="320"/>
             <h2>{album.name}</h2>
             <h3>{album.year}</h3>
             <button className="btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>Add this album to the site</button>
@@ -87,7 +88,8 @@ const AlbumQuery = (props) => {
             <input name="searchQuery" type="search" placeholder="Purple Rain" onChange={handleChange} />
             <input type="submit" value="Search Spotify for album" />
           </form>
-      }
+        }
+      </div>
     </div>
 
   )

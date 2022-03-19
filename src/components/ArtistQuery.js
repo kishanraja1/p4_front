@@ -22,7 +22,7 @@ const getCookie = (name) => {
 const csrftoken = getCookie('csrftoken')
 
 const ArtistQuery = (props) => {
-  const [artist, setArtist] = useState({name: 'Default artist name', year: 2022, image: "default image path"})
+  const [artist, setArtist] = useState({name: 'Default artist name', year: '', image: "default image path"})
   const [showArtist, setShowArtist] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -69,25 +69,27 @@ const ArtistQuery = (props) => {
 
   return (
     <div>
-      <h1>Find musical artists from Spotify's massive library</h1>
-      <h2>Are we missing an awesome musical artist that you think should be on our list of the best musical artists ever??</h2>
-      <h4>Search the Spotify library using our API client, and then add them to our collection!</h4>
-      { showArtist ?
+      <div className="query-div">
+        <h1>Find musical artists from Spotify's massive library</h1>
+        <h2>Are we missing an awesome musical artist that you think should be in our database??</h2>
+        <h4>Search the Spotify library using our API client, and then add them to our collection!</h4>
+        { showArtist ?
           <div className="spotify-card">
-            <img src={artist.image} height="320" width="320"/>
+            <img className="artist-image" src={artist.image} height="320" width="320"/>
             <h2>{artist.name}</h2>
             <h3>{artist.genre}</h3>
             <button className="btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}>Add this artist to the site</button>
-            <button onClick={() => {setShowArtist(false)}}>Go Back</button>
+            <button onClick={() => {setShowArtist(false)}}>Back</button>
           </div>
           :
           <form onSubmit={handleGetSpotifyArtistData}>
             <CSRFToken />
-            <label htmlFor='searchQuery'>Search Spotify for an artist's name: </label>
+            <label htmlFor='searchQuery'>Search Spotify: </label>
             <input name="searchQuery" type="search" placeholder="Frank Sinatra" onChange={handleChange} />
             <input type="submit" value="Search Spotify for artist" />
           </form>
-      }
+        }
+      </div>
     </div>
 
   )
