@@ -79,7 +79,7 @@ const AlbumQuery = (props) => {
             <h2>{album.name}</h2>
             <h3>{album.year}</h3>
             <button className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>+  <span className="btn-text">Add to database</span></button>
-            <button onClick={() => {setShowAlbum(false)}}>Go Back</button>
+            <button className="card-back-btn" onClick={() => {setShowAlbum(false)}}>X</button>
           </div>
           :
           <form onSubmit={handleGetSpotifyAlbumData}>
