@@ -76,8 +76,8 @@ const Carousel = (props) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 400,
-    autoplaySpeed: 2000,
+    speed: 250,
+    autoplaySpeed: 900,
     cssEase: "linear",
     // nextArrow: <NextArrow />,
     // prevArrow: <PrevArrow />,
@@ -115,7 +115,7 @@ const Carousel = (props) => {
       <div className="landingCarousel">
         <Slider {...settings}>
           {albumsArray.map((img, id) => (
-            <div className={id === imageIndex ? "slide activeSlide" : "slide"}  key={[0]}> 
+            <div className={id === imageIndex ? "slide activeSlide" : "slide"}  key={[0]}>
               <img src={img} alt={img} />
             </div>
           ))}

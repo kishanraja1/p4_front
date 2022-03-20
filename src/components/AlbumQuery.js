@@ -95,10 +95,12 @@ const AlbumQuery = (props) => {
             <button className="card-back-btn" onClick={() => {setShowAlbum(false)}}>X</button>
           </Card>
           :
-          <CardActions component="form" onSubmit={handleGetSpotifyAlbumData} sx={{alignItems: 'center'}}>
+          <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
+          <form onSubmit={handleGetSpotifyAlbumData}>
             <CSRFToken />
             <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3}}/>
-            <Button submit variant="contained" endIcon={<SearchIcon/>} sx={{pr:1.5, pl:0}}><input hidden type="submit"/></Button>
+            <Button variant="contained" endIcon={<SearchIcon/>} sx={{pr:1.5, pl:0}}><input type="submit"  value="Search Spotify for artist" /></Button>
+          </form>
           </CardActions>
         }
       </Box>
