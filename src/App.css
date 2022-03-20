@@ -76,6 +76,16 @@ a {
   opacity: 1;
 }
 
+.albumQuery{
+  width: 80rem;
+}
+
+.searchButton {
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+
+}
+
 .album-container {
   display: flex;
   flex-flow: row wrap;

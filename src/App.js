@@ -166,7 +166,9 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ALBUMS</Typography>
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
+                <div className="albumQuery">
                 <AlbumQuery handleCreate={handleCreate}/>
+                </div>
                 <AddAlbum handleCreate={handleCreate} />
                 <div className="album-container">
                   {albumsMap}

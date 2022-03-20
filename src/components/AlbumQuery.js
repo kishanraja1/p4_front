@@ -8,9 +8,12 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
+import { useFormControl } from '@mui/material/FormControl';
+
 
 
 axios.defaults.xsrfCookieName = 'csrftoken'
@@ -96,10 +99,11 @@ const AlbumQuery = (props) => {
           </Card>
           :
           <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
-          <form onSubmit={handleGetSpotifyAlbumData}>
+
+          <form onSubmit={handleGetSpotifyAlbumData} className="searchButton">
             <CSRFToken />
-            <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3}}/>
-            <Button variant="contained" endIcon={<SearchIcon/>} sx={{pr:1.5, pl:0}}><input type="submit"  value="Search Spotify for artist" /></Button>
+            <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3, input:{color: 'white'}}}/>
+            <button><input type="submit"  value="" /><SearchIcon sx={{p: 2}}/></button>
           </form>
           </CardActions>
         }
