@@ -1,8 +1,19 @@
 import axios from 'axios'
 import {useState} from 'react'
 import CSRFToken from './GetCSRFToken'
+//MUI Components
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+
+
 
 const getCookie = (name) => {
   let cookieValue = null;
@@ -53,7 +64,7 @@ const AlbumQuery = (props) => {
       setAlbum(data)
       setShowAlbum(true)
     })
-  
+
     // axios.get('http://localhost:8000/api/albums/spotify_album')
     //      .then((response) => {
     //        console.log(response.data)
@@ -69,18 +80,17 @@ const AlbumQuery = (props) => {
 
   return (
     <div>
-      <div className="query-div">
-        <h1>Find albums from Spotify's massive library</h1>
-        <h2>Are we missing an awesome album that you think should be in our database??</h2>
-        <h4>Search the Spotify library using our API client, and then add it to our collection!</h4>
+      <Box className="query-div">
+        <Typography variant="h4" align= 'center'>Find albums from Spotify's massive library</Typography>
+        <Typography variant='body'>Are we missing an awesome album that you think should be in our database? Search the Spotify library using our API client, and then add it to our collection!</Typography>
         { showAlbum ?
-          <div className="spotify-card">
-            <img className="album-image" src={album.image} height="320" width="320"/>
+          <Card className="spotify-card">
+            <CardMedia component="img" img className="album-image" src={album.image} height="320" width="320" alt={album.name}/>
             <h2>{album.name}</h2>
             <h3>{album.year}</h3>
             <button className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>+  <span className="btn-text">Add to database</span></button>
             <button className="card-back-btn" onClick={() => {setShowAlbum(false)}}>X</button>
-          </div>
+          </Card>
           :
           <form onSubmit={handleGetSpotifyAlbumData}>
             <CSRFToken />
@@ -89,7 +99,7 @@ const AlbumQuery = (props) => {
             <input type="submit" value="Search Spotify for album" />
           </form>
         }
-      </div>
+      </Box>
     </div>
 
   )
