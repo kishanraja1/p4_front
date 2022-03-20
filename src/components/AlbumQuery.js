@@ -34,7 +34,7 @@ const AlbumQuery = (props) => {
     e.preventDefault()
     // https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
     // helped us figure out how to execute this particular post request
-    fetch('http://localhost:8000/api/albums/spotify_album', {
+    fetch('https://young-savannah-30515.herokuapp.com/api/albums/spotify_album', {
       credentials: 'include',
       method: 'POST',
       mode: 'cors',
@@ -53,7 +53,7 @@ const AlbumQuery = (props) => {
       setAlbum(data)
       setShowAlbum(true)
     })
-  
+
     // axios.get('http://localhost:8000/api/albums/spotify_album')
     //      .then((response) => {
     //        console.log(response.data)

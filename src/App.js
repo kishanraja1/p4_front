@@ -174,9 +174,11 @@ const artistsMap = artists.map((artist) => {
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
               {user &&
+                <>
                 <AlbumQuery handleCreate={handleCreate}/>
 
                 <AddAlbum handleCreate={handleCreate} />
+                </>
               }
                 <div className="album-container">
                   {albumsMap}
@@ -188,12 +190,11 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ARTISTS</Typography>
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
-
               {user &&
-
+                <>
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
-
                 <AddArtist handleCreateArtist={handleCreateArtist} />
+                </>
               }
                 <div className="album-container">
                   {artistsMap}

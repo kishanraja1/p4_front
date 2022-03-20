@@ -34,7 +34,7 @@ const ArtistQuery = (props) => {
     e.preventDefault()
     // https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
     // helped us figure out how to execute this particular post request
-    fetch('http://localhost:8000/api/artists/spotify_artist', {
+    fetch('https://young-savannah-30515.herokuapp.com/api/artists/spotify_artist', {
       credentials: 'include',
       method: 'POST',
       mode: 'cors',
@@ -53,7 +53,7 @@ const ArtistQuery = (props) => {
       setArtist(data)
       setShowArtist(true)
     })
-  
+
     // axios.get('http://localhost:8000/api/artists/spotify_artist')
     //      .then((response) => {
     //        console.log(response.data)
