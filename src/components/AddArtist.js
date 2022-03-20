@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useAuth0} from '@auth0/auth0-react'
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -27,6 +28,7 @@ const styleModal = {
 
 
 const AddArtist = (props) => {
+  const { user, isAuthenticated } = useAuth0()
   /////// STATE \\\\\\\
   let emptyArtist = {name: '', genre: '', image: '',}
   const [artist, setArtist] = useState(emptyArtist)
@@ -84,7 +86,6 @@ const AddArtist = (props) => {
         </Box>
       </Modal>
     </div>
-
   )
 
 }
