@@ -16,6 +16,7 @@ import Profile from './components/Profile'
 
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
+import SearchAlbums from './components/SearchAlbums';
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -168,6 +169,7 @@ const artistsMap = artists.map((artist) => {
               <Grid direction="column" container alignItems="center"justify="center">
                 <AlbumQuery handleCreate={handleCreate}/>
                 <AddAlbum handleCreate={handleCreate} />
+                <SearchAlbums getAlbums={getAlbums} setAlbums={setAlbums} albums={albums} />
                 <div className="album-container">
                   {albumsMap}
                 </div>
