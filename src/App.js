@@ -16,7 +16,6 @@ import Profile from './components/Profile'
 
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
-import SearchAlbums from './components/SearchAlbums';
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -34,6 +33,11 @@ const App = () => {
 /////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchNameIsActive, setSearchNameIsActive] = useState(true)
+  const [searchGenreIsActive, setSearchGenreIsActive] = useState(false)
+  const [searchYearIsActive, setSearchYearIsActive] = useState(false)
+
 
 /////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
@@ -75,18 +79,54 @@ const App = () => {
 
 /////// ALBUM MAP \\\\\\\
   const albumsMap = albums.map((album)=> {
-    return(
-      <div key={album.id} className="card">
-        <img className="album-image" src={album.image} />
-        <h3>{album.name}</h3>
-        <h4>{album.year}</h4>
-        <Grid direction="row" container alignItems="center" justify="center">
-          <EditAlbum handleUpdate={handleUpdate} album={album} />
-          <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
-        </Grid>
-      </div>
-    )
-  })
+    if(searchNameIsActive && album.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+       searchYearIsActive && album.year.toString().includes(searchQuery)) {
+      return (
+        <div key={album.id} className="card">
+          <img className="album-image" src={album.image} />
+          <h3>{album.name}</h3>
+          <h4>{album.year}</h4>
+          <Grid direction="row" container alignItems="center" justify="center">
+            <EditAlbum handleUpdate={handleUpdate} album={album} />
+            <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
+          </Grid>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }) 
+  
+/////////////// ALBUM/ARTIST SEARCH HANDLERS \\\\\\\\\\\\\\\\\\\
+  const handleNameQueryChange = (e) => {
+    setSearchGenreIsActive(false)
+    setSearchYearIsActive(false)
+    setSearchNameIsActive(true)
+    setSearchQuery(e.target.value)
+  }
+
+  const handleGenreQueryChange = (e) => {
+    setSearchNameIsActive(false)
+    setSearchYearIsActive(false)
+    setSearchGenreIsActive(true)
+    setSearchQuery(e.target.value)
+  }
+
+  const handleYearQueryChange = (e) => {
+    setSearchNameIsActive(false)
+    setSearchGenreIsActive(false)
+    setSearchYearIsActive(true)
+    setSearchQuery(e.target.value)
+  }
+
+  const handleRemoveSearchQuery = () => {
+    setSearchQuery('')
+    const searchEls = document.getElementsByClassName('search-text')
+    for(let el of searchEls) {el.value = ""}
+    // artistSearchEl.value = ''
+    // albumSearchEl.value = ''
+  }
+
 // SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
 
 ///////////////////// ARTIST CRUD ///////////////////
@@ -131,17 +171,22 @@ const App = () => {
 //////// ARTIST MAP \\\\\\\
 
 const artistsMap = artists.map((artist) => {
-  return(
-    <div key={artist.id} className="card">
-      <img className="artist-image" src={artist.image} />
-      <h4>{artist.name}</h4>
-      <h5>{artist.genre}</h5>
-      <Grid direction="row" container alignItems="center" justify="center">
-        <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-        <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
-      </Grid>
-    </div>
-  )
+  if(searchNameIsActive && artist.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+     searchGenreIsActive && artist.genre.toLowerCase().includes(searchQuery.toLowerCase())) {
+    return(
+      <div key={artist.id} className="card">
+        <img className="artist-image" src={artist.image} />
+        <h4>{artist.name}</h4>
+        <h5>{artist.genre}</h5>
+        <Grid direction="row" container alignItems="center" justify="center">
+          <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+          <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
+        </Grid>
+      </div>
+    )
+    } else {
+      return
+    }
 })
 
 /////// USE EFFECT \\\\\\\\
@@ -169,8 +214,14 @@ const artistsMap = artists.map((artist) => {
               <Grid direction="column" container alignItems="center"justify="center">
                 <AlbumQuery handleCreate={handleCreate}/>
                 <AddAlbum handleCreate={handleCreate} />
-                <SearchAlbums getAlbums={getAlbums} setAlbums={setAlbums} albums={albums} />
-                <div className="album-container">
+                <div className="search-database">
+                  <h4>Search our database</h4>
+                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by album title" onChange={handleNameQueryChange}/>
+                  { searchQuery ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by release year" onChange={handleYearQueryChange}/>
+                  { searchQuery ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                </div>
+                <div className="content-container">
                   {albumsMap}
                 </div>
               </Grid>
@@ -182,7 +233,14 @@ const artistsMap = artists.map((artist) => {
               <Grid direction="column" container alignItems="center"justify="center">
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
-                <div className="album-container">
+                <div className="search-database">
+                  <h4>Search our database</h4>
+                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search artists by name" onChange={handleNameQueryChange} />
+                  { searchQuery && searchNameIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search artists by genre" onChange={handleGenreQueryChange} />
+                  { searchQuery && searchGenreIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                </div>
+                <div className="content-container">
                   {artistsMap}
                 </div>
               </Grid>

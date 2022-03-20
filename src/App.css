@@ -75,7 +75,7 @@ a {
   opacity: 1;
 }
 
-.album-container {
+.content-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -187,5 +187,15 @@ footer h3 {
 .engineer-link {
   display: inline;
   padding-right: 0.5em;
+}
+
+.search-database {
+  margin: 0 auto 1em;
+  text-align: center;
+}
+
+.search-database button {
+  padding: 0.5em;
+  margin: 0 auto;
 }
 
