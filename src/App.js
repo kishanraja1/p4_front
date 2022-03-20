@@ -174,7 +174,6 @@ const artistsMap = artists.map((artist) => {
           <Route path="/albums">
             <Typography variant="h2" component="h1">ALBUMS</Typography>
             <div>
-              <Grid direction="column" container alignItems="center"justify="center">
                 <div className="albumQuery">
                    {user &&
                           <>
@@ -184,19 +183,15 @@ const artistsMap = artists.map((artist) => {
                      }
                </div>
                 <div className="album-container" >
-
                   {albumsMap}
                 </div>
-              </Grid>
             </div>
           </Route>
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>
             <Box>
-              <Grid direction="column" container alignItems="center"justify="center" flex-direction='column-reverse'>
                 {user &&
                 <>
-
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
                 </>
@@ -204,7 +199,6 @@ const artistsMap = artists.map((artist) => {
                 <div className="album-container">
                   {artistsMap}
                 </div>
-              </Grid>
             </Box>
           </Route>
 
