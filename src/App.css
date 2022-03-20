@@ -78,6 +78,7 @@ article {
   opacity: 1;
 }
 
+
 .albumQuery{
   width: 80rem;
 }
@@ -85,10 +86,9 @@ article {
 .searchButton {
   display: grid;
   grid-template-columns: 9fr 1fr;
-
 }
 
-.album-container {
+.content-container {
   display: flex;
   flex-flow: row-reverse wrap-reverse;
   justify-content: center;
@@ -195,3 +195,14 @@ footer h3 {
   display: inline;
   padding-right: 0.5em;
 }
+
+.search-database {
+  margin: 0 auto 1em;
+  text-align: center;
+}
+
+.search-database button {
+  padding: 0.5em;
+  margin: 0 auto;
+}
+
