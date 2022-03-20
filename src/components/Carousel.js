@@ -115,7 +115,7 @@ const Carousel = (props) => {
       <div className="landingCarousel">
         <Slider {...settings}>
           {albumsArray.map((img, id) => (
-            <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
+            <div className={id === imageIndex ? "slide activeSlide" : "slide"}  key={[0]}> 
               <img src={img} alt={img} />
             </div>
           ))}

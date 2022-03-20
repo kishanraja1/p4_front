@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
+//APP COMPONENTS
 import Carousel from './components/Carousel.js'
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
@@ -13,7 +14,6 @@ import Footer from './components/Footer'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
 import Profile from './components/Profile'
-
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
 
