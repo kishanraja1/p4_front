@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import {useAuth0} from '@auth0/auth0-react'
+
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -26,6 +28,7 @@ const styleModal = {
 };
 
 const AddAlbum = (props) => {
+  const { user, isAuthenticated } = useAuth0()
   /////// STATE \\\\\\\
   let emptyAlbum = {name: '', year: 0, image: '', }  //Saving for when we add artists to albums:  artist: '',
   const [album, setAlbum] = useState(emptyAlbum)
