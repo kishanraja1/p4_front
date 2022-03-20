@@ -93,7 +93,6 @@ const App = () => {
       </div>
     )
   })
-// SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
 
 ///////////////////// ARTIST CRUD ///////////////////
   const getArtists = () => {
@@ -135,7 +134,6 @@ const App = () => {
   }
 
 //////// ARTIST MAP \\\\\\\
-
 const artistsMap = artists.map((artist) => {
   return(
     <div key={artist.id} className="card">
@@ -168,9 +166,6 @@ const artistsMap = artists.map((artist) => {
     </div>
         <TopNav />
         <Switch>
-          <Route path="/home">
-            <Carousel />
-          </Route>
           <Route path="/albums">
             <Typography variant="h2" component="h1">ALBUMS</Typography>
             <div>
@@ -201,15 +196,15 @@ const artistsMap = artists.map((artist) => {
                 </div>
             </Box>
           </Route>
-
           <Route path="/profile">
             <Profile />
            </Route>
-
           <Route path="/query">
             <AlbumQuery handleCreate={handleCreate}/>
             <ArtistQuery handleCreateArtist={handleCreateArtist} />
-
+          </Route>
+          <Route path="/">
+            <Carousel />
           </Route>
         </Switch>
       <Footer />
