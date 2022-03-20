@@ -92,8 +92,12 @@ const App = () => {
           <h3>{album.name}</h3>
           <h4>{album.year}</h4>
           <Grid direction="row" container alignItems="center" justify="center">
-            <EditAlbum handleUpdate={handleUpdate} album={album} />
-            <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
+            { user && 
+            <>
+              <EditAlbum handleUpdate={handleUpdate} album={album} />
+              <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
+            </>
+            }
           </Grid>
         </div>
       )
@@ -184,8 +188,12 @@ const artistsMap = artists.map((artist) => {
         <h4>{artist.name}</h4>
         <h5>{artist.genre}</h5>
         <Grid direction="row" container alignItems="center" justify="center">
-          <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
-          <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
+          { user && 
+          <>
+            <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
+            <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
+          </>
+          }
         </Grid>
       </div>
     )
