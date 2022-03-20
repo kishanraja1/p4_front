@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useAuth0} from '@auth0/auth0-react'
 
 /////// Material UI \\\\\\\
 // MUI Components
@@ -27,6 +28,7 @@ const style = {
 };
 
 const EditAlbum = (props) => {
+  const { user, isAuthenticated } = useAuth0()
   /////// STATE \\\\\\\
   const [album, setAlbum] = useState({...props.album})
   const [open, setOpen] = useState(false);
@@ -71,7 +73,7 @@ const EditAlbum = (props) => {
                 variant="outlined" label = "Year"
                 sx={{ m: 1, color:'#19196E'}}/>
               <TextField
-                name="image" value={album.image} 
+                name="image" value={album.image}
                 onChange={handleChange}
                 variant="outlined" label="Image URL"
                 sx={{ m: 1, color:'#19196E'}}/>

@@ -7,8 +7,12 @@ const Profile = () => {
   return(
     isAuthenticated && (
       <article>
+      <h1>Your Profile</h1>
         {user?.picture && <img id="userImg" src={user.picture} alt={user.name}/>}
-        <h2>Welcome, {user?.name}!</h2>
+        <h2>Name: {user?.name}</h2>
+        <ul>
+          {Object.keys(user).map((objKey, i) => <li key={i}>{objKey}: {user[objKey]}</li>)}
+        </ul>
       </article>
     )
   )
