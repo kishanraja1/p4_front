@@ -16,6 +16,9 @@ import LogoutButton from './components/LogoutButton'
 import Profile from './components/Profile'
 import Greeting from './components/Greeting'
 
+import AlbumQuery from './components/AlbumQuery'
+import ArtistQuery from './components/ArtistQuery'
+
 /////// Material UI \\\\\\\
 //MUI Components
 import {
@@ -76,6 +79,7 @@ const App = () => {
   const albumsMap = albums.map((album)=> {
     return(
       <div key={album.id} className="card">
+        <img className="album-image" src={album.image} />
         <h3>{album.name}</h3>
         <h4>{album.year}</h4>
         {user &&
@@ -129,12 +133,14 @@ const App = () => {
   }
 
 //////// ARTIST MAP \\\\\\\
+
 const artistsMap = artists.map((artist) => {
   return(
     <div key={artist.id} className="card">
-      <h4>Name: {artist.name}</h4>
-      <h5>Genre: {artist.genre}</h5>
-      {user &&
+      <img className="artist-image" src={artist.image} />
+      <h4>{artist.name}</h4>
+      <h5>{artist.genre}</h5>
+     {user &&
       <Grid direction="row" container alignItems="center" justify="center">
         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
         <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
@@ -168,6 +174,8 @@ const artistsMap = artists.map((artist) => {
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
               {user &&
+                <AlbumQuery handleCreate={handleCreate}/>
+
                 <AddAlbum handleCreate={handleCreate} />
               }
                 <div className="album-container">
@@ -180,7 +188,11 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ARTISTS</Typography>
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
+
               {user &&
+
+                <ArtistQuery handleCreateArtist={handleCreateArtist} />
+
                 <AddArtist handleCreateArtist={handleCreateArtist} />
               }
                 <div className="album-container">
@@ -189,8 +201,15 @@ const artistsMap = artists.map((artist) => {
               </Grid>
             </div>
           </Route>
+
           <Route path="/profile">
             <Profile />
+           </Route>
+
+          <Route path="/query">
+            <AlbumQuery handleCreate={handleCreate}/>
+            <ArtistQuery handleCreateArtist={handleCreateArtist} />
+
           </Route>
         </Switch>
       <Footer />

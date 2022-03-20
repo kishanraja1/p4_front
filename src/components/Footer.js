@@ -15,9 +15,9 @@ const Footer = () => {
         <div className="engineer" id="nathan">
           <h5>Nathan Freeman</h5>
           <div className="engineer-links-list">
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" color="primary"/></a>
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link"  color="primary"/></a>
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><InstagramIcon aria-label="Instagram Link"  color="primary"/></a>
+            <a className="engineer-link" href="https://github.com/Bones81" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" color="primary"/></a>
+            <a className="engineer-link" href="https://www.linkedin.com/in/nathanfreeman6/" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link"  color="primary"/></a>
+            <a className="engineer-link" href="https://www.instagram.com/nate.is.free/" target="_blank" rel="noopener noreferrer"><InstagramIcon aria-label="Instagram Link"  color="primary"/></a>
           </div>
         </div>
         <div className="engineer" id="nathan">
