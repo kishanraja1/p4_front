@@ -92,7 +92,7 @@ const ArtistQuery = (props) => {
             <Typography gutterBottom variant="h5" component="div">{artist.name}</Typography>
             <Typography variant="subtitle">{artist.genre}</Typography>
             <CardActions>
-            <button aria-label="Add to Database" className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+            <button aria-label="Add to Database" className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}> <AddIcon sx={{color: '#FF0000'}}/><span className="btn-text">Add to database</span></button>
             <button aria-label="Go Back" className="card-back-btn" onClick={() => {setShowArtist(false)}}><ClearIcon sx={{color: '#FF0000'}}/></button>
             </CardActions>
           </Card>
@@ -101,7 +101,7 @@ const ArtistQuery = (props) => {
 
           <form onSubmit={handleGetSpotifyArtistData} className="searchButton">
             <CSRFToken />
-            <TextField label="Search Spotify for an Artist" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3, input:{color: 'white'}}}/>
+            <TextField label="Search Spotify for an Artist" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}/>
             <button><input type="submit"  value="" /><SearchIcon sx={{p: 2}}/></button>
           </form>
           </CardActions>
