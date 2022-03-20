@@ -17,12 +17,14 @@ import Profile from './components/Profile'
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
 
+
 /////// Material UI \\\\\\\
 //MUI Components
 import {
   IconButton,
   Typography,
-  Grid
+  Grid,
+  Box
 } from '@mui/material';
 
 //MUI Icons
@@ -170,7 +172,7 @@ const artistsMap = artists.map((artist) => {
                 <AlbumQuery handleCreate={handleCreate}/>
                 </div>
                 <AddAlbum handleCreate={handleCreate} />
-                <div className="album-container">
+                <div className="album-container" >
                   {albumsMap}
                 </div>
               </Grid>
@@ -178,15 +180,15 @@ const artistsMap = artists.map((artist) => {
           </Route>
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>
-            <div>
-              <Grid direction="column" container alignItems="center"justify="center">
+            <Box>
+              <Grid direction="column" container alignItems="center"justify="center" flex-direction='column-reverse'>
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
                 <div className="album-container">
                   {artistsMap}
                 </div>
               </Grid>
-            </div>
+            </Box>
           </Route>
           <Route path="/query">
             <AlbumQuery handleCreate={handleCreate}/>

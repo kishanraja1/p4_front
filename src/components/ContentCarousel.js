@@ -11,26 +11,25 @@ import Box from '@mui/material/Box';
 
 const ContentCarousel = (props) => {
 
-//ARROW FUNCTIONS
-  // const NextArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow next" onClick={onClick}>
-  //       <NavigateNextIcon />
-  //     </div>
-  //   )
-  // }
-  // const PrevArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow prev" onClick={onClick}>
-  //       <ArrowBackIosIcon />
-  //     </div>
-  //   )
-  // }
+ARROW FUNCTIONS
+  const NextArrow = ({onClick}) => {
+    return(
+      <div className="arrow next" onClick={onClick}>
+        <NavigateNextIcon />
+      </div>
+    )
+  }
+  const PrevArrow = ({onClick}) => {
+    return(
+      <div className="arrow prev" onClick={onClick}>
+        <ArrowBackIosIcon />
+      </div>
+    )
+  }
 
 //STATE
   const [contentIndex, setContentIndex] = useState(0)
-  const [album, setAlbum] = useState(emptyAlbum)
-  let emptyAlbum = {name: '', year: 0, image: '', }
+  const [album, setAlbum] = useState({...props.album})
 
   const settings = {
     dots: true,
@@ -44,8 +43,8 @@ const ContentCarousel = (props) => {
     speed: 400,
     autoplaySpeed: 2000,
     cssEase: "linear",
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
@@ -79,7 +78,7 @@ const ContentCarousel = (props) => {
       <>
       <div className="contentCarousel">
         <Slider {...settings}>
-          {albumsArray.map((img, id) => (
+          {albums.map((img, id) => (
             <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
               <img src={img} alt={img} />
             </div>
