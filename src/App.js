@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {useAuth0} from '@auth0/auth0-react'
 
 import Carousel from './components/Carousel.js'
 import TopNav from './components/TopNav'
@@ -13,6 +14,7 @@ import Footer from './components/Footer'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
 import Profile from './components/Profile'
+import Greeting from './components/Greeting'
 
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
@@ -30,6 +32,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const App = () => {
+  const { user, isAuthenticated } = useAuth0()
 /////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
@@ -79,10 +82,12 @@ const App = () => {
         <img className="album-image" src={album.image} />
         <h3>{album.name}</h3>
         <h4>{album.year}</h4>
+        {user &&
         <Grid direction="row" container alignItems="center" justify="center">
           <EditAlbum handleUpdate={handleUpdate} album={album} />
           <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
         </Grid>
+      }
       </div>
     )
   })
@@ -135,10 +140,12 @@ const artistsMap = artists.map((artist) => {
       <img className="artist-image" src={artist.image} />
       <h4>{artist.name}</h4>
       <h5>{artist.genre}</h5>
+     {user &&
       <Grid direction="row" container alignItems="center" justify="center">
         <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
         <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
       </Grid>
+    }
     </div>
   )
 })
@@ -155,7 +162,7 @@ const artistsMap = artists.map((artist) => {
     <div>
     <LoginButton />
     <LogoutButton />
-    <Profile />
+    <Greeting />
     </div>
         <TopNav />
         <Switch>
@@ -166,8 +173,11 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ALBUMS</Typography>
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
+              {user &&
                 <AlbumQuery handleCreate={handleCreate}/>
+
                 <AddAlbum handleCreate={handleCreate} />
+              }
                 <div className="album-container">
                   {albumsMap}
                 </div>
@@ -178,17 +188,28 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ARTISTS</Typography>
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
+
+              {user &&
+
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
+
                 <AddArtist handleCreateArtist={handleCreateArtist} />
+              }
                 <div className="album-container">
                   {artistsMap}
                 </div>
               </Grid>
             </div>
           </Route>
+
+          <Route path="/profile">
+            <Profile />
+           </Route>
+
           <Route path="/query">
             <AlbumQuery handleCreate={handleCreate}/>
             <ArtistQuery handleCreateArtist={handleCreateArtist} />
+
           </Route>
         </Switch>
       <Footer />

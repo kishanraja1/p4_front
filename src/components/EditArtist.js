@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useAuth0} from '@auth0/auth0-react'
 
 /////// Material UI \\\\\\\
 // MUI Components
@@ -28,6 +29,7 @@ const style = {
 
 
 const EditArtist = (props) => {
+  const { user, isAuthenticated } = useAuth0()
   /////// STATE \\\\\\\
   const [artist, setArtist] = useState({...props.artist})
   const [open, setOpen] = useState(false);

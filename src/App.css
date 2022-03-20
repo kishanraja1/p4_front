@@ -49,6 +49,11 @@ a {
   color: white;
 }
 
+article {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .add-new-album {
   margin: 1em;
 }
