@@ -9,6 +9,10 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
+
+
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
@@ -45,7 +49,7 @@ const AlbumQuery = (props) => {
     e.preventDefault()
     // https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
     // helped us figure out how to execute this particular post request
-    fetch('http://localhost:8000/api/albums/spotify_album', {
+    fetch('https://young-savannah-30515.herokuapp.com/api/albums/spotify_album', {
       credentials: 'include',
       method: 'POST',
       mode: 'cors',
@@ -81,23 +85,21 @@ const AlbumQuery = (props) => {
   return (
     <div>
       <Box className="query-div">
-        <Typography variant="h4" align= 'center'>Find albums from Spotify's massive library</Typography>
-        <Typography variant='body'>Are we missing an awesome album that you think should be in our database? Search the Spotify library using our API client, and then add it to our collection!</Typography>
+        <Typography variant="h4" component="h4" align= 'center'>Find Albums From Spotify's Extensive Library</Typography>
+        <Typography variant='body'>Can't find an album that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
         { showAlbum ?
           <Card className="spotify-card">
             <CardMedia component="img" img className="album-image" src={album.image} height="320" width="320" alt={album.name}/>
-            <h2>{album.name}</h2>
-            <h3>{album.year}</h3>
+            <Typography gutterBottom variant="h5" component="div">{album.name} ({album.year})</Typography>
             <button className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>+  <span className="btn-text">Add to database</span></button>
             <button className="card-back-btn" onClick={() => {setShowAlbum(false)}}>X</button>
           </Card>
           :
-          <form onSubmit={handleGetSpotifyAlbumData}>
+          <CardActions component="form" onSubmit={handleGetSpotifyAlbumData} sx={{alignItems: 'center'}}>
             <CSRFToken />
-            <label htmlFor='searchQuery'>Search Spotify for an album name: </label>
-            <input name="searchQuery" type="search" placeholder="Purple Rain" onChange={handleChange} />
-            <input type="submit" value="Search Spotify for album" />
-          </form>
+            <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3}}/>
+            <Button submit variant="contained" endIcon={<SearchIcon/>} sx={{pr:1.5, pl:0}}><input hidden type="submit"/></Button>
+          </CardActions>
         }
       </Box>
     </div>
