@@ -12,15 +12,11 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import { useFormControl } from '@mui/material/FormControl';
-
-
+import ClearIcon from '@mui/icons-material/Clear';
+import AddIcon from '@mui/icons-material/Add';
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-
-
-
 
 const getCookie = (name) => {
   let cookieValue = null;
@@ -94,8 +90,8 @@ const AlbumQuery = (props) => {
           <Card className="spotify-card">
             <CardMedia component="img" img className="album-image" src={album.image} height="320" width="320" alt={album.name}/>
             <Typography gutterBottom variant="h5" component="div">{album.name} ({album.year})</Typography>
-            <button className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>+  <span className="btn-text">Add to database</span></button>
-            <button className="card-back-btn" onClick={() => {setShowAlbum(false)}}>X</button>
+            <button aria-label="Add to Database"  className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+            <button aria-label="Go Back" className="card-back-btn" onClick={() => {setShowAlbum(false)}}><ClearIcon sx={{color: '#FF0000'}}/></button>
           </Card>
           :
           <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
