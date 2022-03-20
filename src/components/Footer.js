@@ -29,11 +29,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="engineer" id="nathan">
-          <h5>Kishan R.</h5>
+          <h5>Kishan Raja</h5>
           <div className="engineer-links-list">
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" sx={{color: '#fc9842'}}/></a>
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link" sx={{color: '#fc9842'}}/></a>
-            <a className="engineer-link" href="#" target="_blank" rel="noopener noreferrer"><InstagramIcon aria-label="Instagram Link" sx={{color: '#fc9842'}}/></a>
+            <a className="engineer-link" href="https://github.com/kishanraja1" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-label="GitHub Link" sx={{color: '#fc9842'}}/></a>
+            <a className="engineer-link" href="https://www.linkedin.com/in/kishanraja/" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-label="LinkedIn Link" sx={{color: '#fc9842'}}/></a>
+            <a className="engineer-link" href="https://www.instagram.com/ki_raja22/" target="_blank" rel="noopener noreferrer"><InstagramIcon aria-label="Instagram Link" sx={{color: '#fc9842'}}/></a>
           </div>
         </div>
       </div>
