@@ -217,9 +217,9 @@ const artistsMap = artists.map((artist) => {
                 <div className="search-database">
                   <h4>Search our database</h4>
                   <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by album title" onChange={handleNameQueryChange}/>
-                  { searchQuery ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                  { searchQuery && searchNameIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
                   <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by release year" onChange={handleYearQueryChange}/>
-                  { searchQuery ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                  { searchQuery && searchYearIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
                 </div>
                 <div className="content-container">
                   {albumsMap}
