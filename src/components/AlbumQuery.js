@@ -1,6 +1,20 @@
 import axios from 'axios'
 import {useState} from 'react'
 import CSRFToken from './GetCSRFToken'
+//MUI Components
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
+import AddIcon from '@mui/icons-material/Add';
+
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
@@ -69,27 +83,27 @@ const AlbumQuery = (props) => {
 
   return (
     <div>
-      <div className="query-div">
-        <h1>Find albums from Spotify's massive library</h1>
-        <h2>Are we missing an awesome album that you think should be in our database??</h2>
-        <h4>Search the Spotify library using our API client, and then add it to our collection!</h4>
+      <Box className="query-div">
+        <Typography variant="h4" component="h4" align= 'center'>Find Albums From Spotify's Extensive Library</Typography>
+        <Typography variant='body'>Can't find an album that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
         { showAlbum ?
-          <div className="spotify-card">
-            <img className="album-image" src={album.image} height="320" width="320"/>
-            <h2>{album.name}</h2>
-            <h3>{album.year}</h3>
-            <button className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}>+  <span className="btn-text">Add to database</span></button>
-            <button className="card-back-btn" onClick={() => {setShowAlbum(false)}}>X</button>
-          </div>
+          <Card className="spotify-card">
+            <CardMedia component="img" img className="album-image" src={album.image} height="320" width="320" alt={album.name}/>
+            <Typography gutterBottom variant="h5" component="div">{album.name} ({album.year})</Typography>
+            <button aria-label="Add to Database"  className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+            <button aria-label="Go Back" className="card-back-btn" onClick={() => {setShowAlbum(false)}}><ClearIcon sx={{color: '#FF0000'}}/></button>
+          </Card>
           :
-          <form onSubmit={handleGetSpotifyAlbumData}>
+          <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
+
+          <form onSubmit={handleGetSpotifyAlbumData} className="searchButton">
             <CSRFToken />
-            <label htmlFor='searchQuery'>Search Spotify for an album name: </label>
-            <input name="searchQuery" type="search" placeholder="Purple Rain" onChange={handleChange} />
-            <input type="submit" value="Search Spotify for album" />
+            <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3, input:{color: 'white'}}}/>
+            <button><input type="submit"  value="" /><SearchIcon sx={{p: 2}}/></button>
           </form>
+          </CardActions>
         }
-      </div>
+      </Box>
     </div>
 
   )

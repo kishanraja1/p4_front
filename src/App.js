@@ -4,6 +4,7 @@ import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {useAuth0} from '@auth0/auth0-react'
 
+//APP COMPONENTS
 import Carousel from './components/Carousel.js'
 import TopNav from './components/TopNav'
 import AddAlbum from './components/AddAlbum'
@@ -15,16 +16,17 @@ import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
 import Profile from './components/Profile'
 import Greeting from './components/Greeting'
-
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
+
 
 /////// Material UI \\\\\\\
 //MUI Components
 import {
   IconButton,
   Typography,
-  Grid
+  Grid,
+  Box
 } from '@mui/material';
 
 //MUI Icons
@@ -173,14 +175,16 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ALBUMS</Typography>
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
-              {user &&
-                <>
+                <div className="albumQuery">
+             {user &&
+                        <>
                 <AlbumQuery handleCreate={handleCreate}/>
-
+                </div>
                 <AddAlbum handleCreate={handleCreate} />
-                </>
-              }
-                <div className="album-container">
+                     </>
+               }
+                <div className="album-container" >
+
                   {albumsMap}
                 </div>
               </Grid>
@@ -188,10 +192,11 @@ const artistsMap = artists.map((artist) => {
           </Route>
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>
-            <div>
-              <Grid direction="column" container alignItems="center"justify="center">
-              {user &&
+            <Box>
+              <Grid direction="column" container alignItems="center"justify="center" flex-direction='column-reverse'>
+                {user &&
                 <>
+      
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
                 </>
@@ -200,7 +205,7 @@ const artistsMap = artists.map((artist) => {
                   {artistsMap}
                 </div>
               </Grid>
-            </div>
+            </Box>
           </Route>
 
           <Route path="/profile">
