@@ -68,7 +68,7 @@ const TopNav = (props)  => {
             </IconButton>
             <Divider sx={{mb: 2}} />
             <Box sx={{mb: 2}}>
-              <ListItemButton onClick={()=>{window.location.href="http://localhost:3000/albums"}}>
+              <ListItemButton onClick={()=>{window.location.href="https://murmuring-forest-19651.herokuapp.com/albums"}}>
                 <ListItemIcon>
                   <AlbumIcon sx={{color: "primary.main"}} />
                 </ListItemIcon>
