@@ -176,13 +176,13 @@ const artistsMap = artists.map((artist) => {
             <div>
               <Grid direction="column" container alignItems="center"justify="center">
                 <div className="albumQuery">
-             {user &&
-                        <>
-                <AlbumQuery handleCreate={handleCreate}/>
-                </div>
-                <AddAlbum handleCreate={handleCreate} />
-                     </>
-               }
+                   {user &&
+                          <>
+                      <AlbumQuery handleCreate={handleCreate}/>
+                      <AddAlbum handleCreate={handleCreate} />
+                         </>
+                     }
+               </div>
                 <div className="album-container" >
 
                   {albumsMap}
@@ -196,7 +196,7 @@ const artistsMap = artists.map((artist) => {
               <Grid direction="column" container alignItems="center"justify="center" flex-direction='column-reverse'>
                 {user &&
                 <>
-      
+
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
                 </>
