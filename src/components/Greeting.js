@@ -1,3 +1,4 @@
+import react from 'react'
 import {useAuth0} from '@auth0/auth0-react'
 
 
@@ -7,7 +8,7 @@ const Greeting = () => {
   return(
     isAuthenticated && (
       <article>
-        <h2>Welcome, {user?.name}!</h2>
+        <h2 className='greeting'>Welcome, {user?.name}!</h2>
       </article>
     )
   )

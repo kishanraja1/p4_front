@@ -5,28 +5,14 @@ import {useAuth0} from '@auth0/auth0-react'
 // MUI Components
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
-
-
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
-
-//MODAL Style
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 600,
-  bgcolor: '#E8665D',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  color: '#19196E'
-};
-
 
 const EditArtist = (props) => {
   const { user, isAuthenticated } = useAuth0()
@@ -34,7 +20,7 @@ const EditArtist = (props) => {
   const [artist, setArtist] = useState({...props.artist})
   const [open, setOpen] = useState(false);
 
-  /////// MODAL FUNC \\\\\\\
+  /////// DIALOG FUNC \\\\\\\
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -52,38 +38,39 @@ const EditArtist = (props) => {
   return (
     <div className="edit-album">
     <EditIcon aria-label="Edit" color="primary" sx={{ fontSize: 30 }} onClick={handleOpen}/>
-    <Modal
+    <Dialog
       open={open}
       onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      aria-labelledby="Edit Artists Here"
+      aria-describedby="Edit Artist"
+      maxWidth="md"
+      className="modal"
+      PaperProps={{sx: {bgcolor: '#f48fb1'}}}
     >
-      <Box sx={style} component="form" onSubmit={(event) => {handleSubmit(event, artist)}}>
-          <Typography id="modal-modal-title" variant="h5" >
-            Edit Artist
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <TextField
-              type="text" name="name"
-              value={artist.name} onChange={handleChange}
-              variant="outlined" label = "Artist"
-              sx={{ m: 1 , color:'#19196E'}}/>
-            <TextField
-              type="text" name="genre"
-              value={artist.genre} onChange={handleChange}
-              variant="outlined" label = "Genre"
-              sx={{ m: 1 , color:'#19196E'}}/>
-            <TextField
-              name="image" value={artist.image}
-              onChange={handleChange}
-              variant="outlined" label="Image URL"
-              sx={{ m: 1, color:'#19196E'}}/>
-          </Typography>
+      <DialogTitle variant="h5">Edit Artist</DialogTitle>
+      <DialogContent>
+        <Box component="form" onSubmit={(event) => {handleSubmit(event, artist)}}>
+          <TextField
+            type="text" name="name"
+            value={artist.name} onChange={handleChange}
+            variant="outlined" label = "Artist"
+            sx={{ m: 1 , color:'#19196E'}}/>
+          <TextField
+            type="text" name="genre"
+            value={artist.genre} onChange={handleChange}
+            variant="outlined" label = "Genre"
+            sx={{ m: 1 , color:'#19196E'}}/>
+          <TextField
+            name="image" value={artist.image}
+            onChange={handleChange}
+            variant="outlined" label="Image URL"
+            sx={{ m: 1, color:'#19196E'}}/>
           <Button variant="outlined" sx={{margin: 2, border: 2, color:"#19196E"}}>
             <input type="submit"/>
           </Button>
-      </Box>
-    </Modal>
+        </Box>
+      </DialogContent>
+    </Dialog>
     </div>
   )
 }

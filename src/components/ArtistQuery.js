@@ -81,27 +81,37 @@ const ArtistQuery = (props) => {
     setShowArtist(false)
   }
 
+  const handleAddButtonRender = (newArtist) => {
+    if (props.artists.every(item => item.name !== newArtist.name)) {
+      return (
+        <button aria-label="Add to Database"  className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+      )
+    } else {
+      return (
+        <button aria-label="Already in database"  className="card-add-btn-open" ><span className="btn-text">Already in database</span></button>
+      )
+    }
+  }
+
   return (
     <div>
       <Box className="query-div">
         <Typography variant="h4" component="h4" align= 'center'>Find Artists From Spotify's Extensive Library</Typography>
-        <Typography variant='body'>Can't find an artist that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
+        <Typography variant='h6'>Can't find an artist that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
         { showArtist ?
           <Card className="spotify-card">
             <CardMedia component="img" img className="artist-image" src={artist.image} height="320" width="320" alt={artist.name}/>
             <Typography gutterBottom variant="h5" component="div">{artist.name}</Typography>
             <Typography variant="subtitle">{artist.genre}</Typography>
-            <CardActions>
-            <button aria-label="Add to Database" className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}> <AddIcon sx={{color: '#FF0000'}}/><span className="btn-text">Add to database</span></button>
+            {handleAddButtonRender(artist)}
             <button aria-label="Go Back" className="card-back-btn" onClick={() => {setShowArtist(false)}}><ClearIcon sx={{color: '#FF0000'}}/></button>
-            </CardActions>
           </Card>
           :
           <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
 
-          <form onSubmit={handleGetSpotifyArtistData} className="searchButton">
+          <form onSubmit={handleGetSpotifyArtistData} className="searchForm">
             <CSRFToken />
-            <TextField label="Search Spotify for an Artist" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}/>
+            <TextField label="Search Spotify for an Artist" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{my:3, input:{color: 'white'}, alignItems: 'center'}}/>
             <button><input type="submit"  value="" /><SearchIcon sx={{p: 2}}/></button>
           </form>
           </CardActions>

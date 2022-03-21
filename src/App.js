@@ -19,22 +19,26 @@ import Greeting from './components/Greeting'
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
 
-
 /////// Material UI \\\\\\\
 //MUI Components
 import {
   IconButton,
   Typography,
   Grid,
-  Box
+  Box,
+  TextField,
+  Button
 } from '@mui/material';
 
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const App = () => {
   const { user, isAuthenticated } = useAuth0()
+
 /////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
@@ -42,7 +46,8 @@ const App = () => {
   const [searchNameIsActive, setSearchNameIsActive] = useState(true)
   const [searchGenreIsActive, setSearchGenreIsActive] = useState(false)
   const [searchYearIsActive, setSearchYearIsActive] = useState(false)
-
+  //CAROUSEL STATE
+  const [imageIndex, setImageIndex] = useState(0)
 
 /////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
@@ -89,23 +94,24 @@ const App = () => {
       return (
         <div key={album.id} className="card">
           <img className="album-image" src={album.image} />
-          <h3>{album.name}</h3>
-          <h4>{album.year}</h4>
+          <h4>{album.name}</h4>
+          <h5>{album.year}</h5>
           <Grid direction="row" container alignItems="center" justify="center">
-            { user && 
+            { user &&
             <>
               <EditAlbum handleUpdate={handleUpdate} album={album} />
               <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
             </>
             }
+
           </Grid>
         </div>
       )
     } else {
       return null
     }
-  }) 
-  
+  })
+
 /////////////// ALBUM/ARTIST SEARCH HANDLERS \\\\\\\\\\\\\\\\\\\
   const handleNameQueryChange = (e) => {
     setSearchGenreIsActive(false)
@@ -132,12 +138,7 @@ const App = () => {
     setSearchQuery('')
     const searchEls = document.getElementsByClassName('search-text')
     for(let el of searchEls) {el.value = ""}
-    // artistSearchEl.value = ''
-    // albumSearchEl.value = ''
   }
-
-// SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
-
 
 ///////////////////// ARTIST CRUD ///////////////////
   const getArtists = () => {
@@ -180,7 +181,7 @@ const App = () => {
 
 //////// ARTIST MAP \\\\\\\
 const artistsMap = artists.map((artist) => {
-  if(searchNameIsActive && artist.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+  if(searchNameIsActive && artist.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
      searchGenreIsActive && artist.genre.toLowerCase().includes(searchQuery.toLowerCase())) {
     return(
       <div key={artist.id} className="card">
@@ -188,7 +189,7 @@ const artistsMap = artists.map((artist) => {
         <h4>{artist.name}</h4>
         <h5>{artist.genre}</h5>
         <Grid direction="row" container alignItems="center" justify="center">
-          { user && 
+          { user &&
           <>
             <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
             <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
@@ -211,28 +212,41 @@ const artistsMap = artists.map((artist) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <Router>
-    <div>
-    <LoginButton />
-    <LogoutButton />
-    <Greeting />
-    </div>
         <TopNav />
         <Switch>
           <Route path="/albums">
-            <Typography variant="h2" component="h1">ALBUMS</Typography>
+            <Typography class='page-head' variant="h2" component="h1">ALBUMS</Typography>
             <Box>
               {user &&
                 <>
-                  <AlbumQuery handleCreate={handleCreate}/>
-                  <AddAlbum handleCreate={handleCreate} />
+                <AlbumQuery handleCreate={handleCreate} albums={albums}/>
+                <AddAlbum handleCreate={handleCreate} />
                 </>
               }
-              <div className="search-database">
-                <h4>Search our database</h4>
-                <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by album title" onChange={handleNameQueryChange}/>
-                { searchQuery && searchNameIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
-                <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by release year" onChange={handleYearQueryChange}/>
-                { searchQuery && searchYearIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+              <div className='filterContainer' sx={{alignItems:'center'}}>
+                <Typography variant="h4">Search our database</Typography>
+                <div className='filterDiv'>
+                  <div className="search-database1">
+                    <TextField label="Search Albums by Title" type="search" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
+                       focused sx={{my: 4, input:{color: 'white'}, width: 1/1}}
+                      />
+                      { searchQuery && searchNameIsActive ?
+                        <div>
+                          <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                        </div>
+                        : null}
+                  </div>
+                  <div className="search-database2">
+                    <TextField type="search" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
+                       focused sx={{my: 4, input:{color: 'white'}, width: 1/1}}
+                      />
+                    { searchQuery && searchYearIsActive ?
+                      <div>
+                        <Button onClick={handleRemoveSearchQuery} color='secondary'  variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                      </div>
+                       : null}
+                  </div>
+                </div>
               </div>
               <div className="content-container">
                 {albumsMap}
@@ -240,24 +254,41 @@ const artistsMap = artists.map((artist) => {
             </Box>
           </Route>
           <Route path="/artists">
-            <Typography variant="h2" component="h1">ARTISTS</Typography>
+            <Typography class='page-head' variant="h2" component="h1">ARTISTS</Typography>
             <Box>
-                {user &&
-                <>
-                  <ArtistQuery handleCreateArtist={handleCreateArtist} />
-                  <AddArtist handleCreateArtist={handleCreateArtist} />
-                </>
-                }
-                <div className="search-database">
-                  <h4>Search our database</h4>
-                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search artists by name" onChange={handleNameQueryChange} />
-                  { searchQuery && searchNameIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
-                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search artists by genre" onChange={handleGenreQueryChange} />
-                  { searchQuery && searchGenreIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+              {user &&
+              <>
+                <ArtistQuery handleCreateArtist={handleCreateArtist} artists={artists} />
+                <AddArtist handleCreateArtist={handleCreateArtist} />
+              </>
+              }
+              <div className='filterContainer' sx={{alignItems: 'center'}}>
+                <Typography variant="h4">Search our database</Typography>
+                <div className='filterDiv'>
+                  <div className="search-database1">
+                    <TextField type="search" name="searchQuery" className="search-text" label="Search Artists by Name" onChange={handleNameQueryChange}
+                      fullWidth focused sx={{my:4, input:{color: 'white'}, width: 1/1}}
+                      />
+                    { searchQuery && searchNameIsActive ?
+                      <div>
+                      <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                      </div>
+                      : null}
+                  </div>
+                  <div className="search-database2">
+                    <TextField type="search" name="searchQuery" className="search-text" label="Search Artists by Genre" onChange={handleGenreQueryChange}
+                    fullWidth focused sx={{my:4, input:{color: 'white'}, width: 1/1}}/>
+                    { searchQuery && searchGenreIsActive ?
+                      <div>
+                        <Button onClick={handleRemoveSearchQuery} color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                      </div>
+                      : null}
+                  </div>
                 </div>
-                <div className="content-container">
-                  {artistsMap}
-                </div>
+              </div>
+              <div className="content-container">
+                {artistsMap}
+              </div>
             </Box>
           </Route>
           <Route path="/profile">

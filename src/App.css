@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Roboto+Slab:wght@300&display=swap');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+
+
 *,
 *:before,
 *:after {
   margin: 0;
   padding: 0;
+}
+
+*{
+  font-family: 'Roboto Slab', serif;
 }
 
 body {
@@ -51,8 +58,9 @@ article {
   margin-bottom: 2rem;
 }
 
-.add-new-album {
-  margin: 1em;
+.add-new-album, .add-new-artist {
+  margin-bottom: 2em;
+  text-align: center;
 }
 
 .landingCarousel {
@@ -69,42 +77,60 @@ article {
 .slide {
   transform: scale(0.5);
   transition: transform 250ms;
-  opacity: .8;
+  opacity: .5;
+  z-index: -1;
 }
 
 .activeSlide {
   transform: scale(1.0);
-  z-index: 3;
+  z-index: 8;
   opacity: 1;
 }
-
 
 .albumQuery{
   width: 80%;
 }
 
-.searchButton {
+.searchForm {
   display: grid;
   grid-template-columns: 9fr 1fr;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content-container {
   display: flex;
-  flex-flow: row-reverse wrap-reverse;
-  justify-content: center;
+  overflow-x: scroll;
+  /* flex-flow: row-reverse wrap-reverse; */
+  /* flex-direction: row-reverse; */
+  /* flex-wrap: wrap-reverse; */
+  justify-content: flex-start;
   align-items: center;
   align-content: space-between;
   gap: 1em;
   box-shadow: 5px 5px 50px black;
   padding: 2em;
-  width: 80vw;
+  width: fit-content;
+  min-width: 80vw;
+  max-width: 80vw;
   margin: 0 auto 2em;
   background-color: #fc9842;
   background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
+  position: relative;
 }
 
 .album-image, .artist-image {
   width: 100%;
+  min-height: 300px;
+  max-height: 300px;
+  object-position: top;
+}
+
+.album-image {
+  object-fit: contain;
+}
+
+.artist-image {
   object-fit: cover;
 }
 
@@ -115,7 +141,8 @@ article {
 }
 
 .card {
-  width: 250px;
+  min-width: 250px;
+  max-width: 350px;
   padding: 0.25em;
   border: 1px solid #fc9842;
   box-shadow: 5px 5px 50px black;
@@ -148,8 +175,22 @@ article {
   border-radius: 30px;
 }
 
+
 .card-add-btn:hover {
   width: 200px;
+}
+
+.card-add-btn-open {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  width: fit-content;
+  padding: 0 10px;
+  background: rgba(0,0,0,.8);
+  color: #FF0000;
+  border-radius: 30px;
+  cursor: default;
 }
 
 .card-back-btn {
@@ -196,9 +237,8 @@ footer h3 {
   padding-right: 0.5em;
 }
 
-.search-database {
-  margin: 0 auto 1em;
-  text-align: center;
+.search-database1, .search-database2 {
+  width: fit-content;
 }
 
 .search-database button {
@@ -206,3 +246,75 @@ footer h3 {
   margin: 0 auto;
 }
 
+.filterDiv {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.filterContainer {
+  text-align: center;
+}
+
+
+/* Greeting */
+
+.greeting {
+  color: white;
+  position: relative;
+  /* left: 9rem; */
+  top: 7.5rem;
+}
+
+article > img {
+  height: 12rem;
+  width:12rem;
+  border-radius: 50%;
+}
+
+.page-head {
+  font-family: 'Bungee', cursive;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  background: midnightblue
+}
+
+.iconBtn {
+  position:fixed;
+  top:1.5rem;
+  left:1.5rem;
+  border: 1px solid pink;
+}
+
+@media (max-width: 480px) {
+  header {
+    max-height: 15vh;
+  }
+
+  .query-div {
+    width: 95%;
+  }
+
+  .filterDiv {
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0;
+  }
+
+  .content-container {
+    overflow: auto;
+    flex-flow: row-reverse wrap-reverse;
+    /* flex-direction: row-reverse; */
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    gap: 1em;
+    box-shadow: 5px 5px 50px black;
+    padding: 1em;
+    width: 90vw;
+  }
+}

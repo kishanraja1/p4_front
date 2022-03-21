@@ -35,76 +35,56 @@ import parlamient from "./carouImgs/parlamient.jpg"
 import sgtpepp from "./carouImgs/sgtpepp.jpg"
 import tswift from "./carouImgs/tswift.jpg"
 import ye from "./carouImgs/ye.jpg"
-  //Artists
 
 /// IMG ARRAY FOR MAPPING
 const albumsArray = [big, blink, boss, bowie, cardi, cash, clash, drake,
   duran, fleetwood, floyd, gaga, joydivision, judas, kendrick, lizzo,
   metallica, miles, msjackson, nas, nodoubt, parlamient, sgtpepp, tswift, ye,]
 
-const artistsArray = [
-
-]
-
 const Carousel = (props) => {
-
-//ARROW FUNCTIONS
-  // const NextArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow next" onClick={onClick}>
-  //       <NavigateNextIcon />
-  //     </div>
-  //   )
-  // }
-  // const PrevArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow prev" onClick={onClick}>
-  //       <ArrowBackIosIcon />
-  //     </div>
-  //   )
-  // }
 
 //STATE
   const [imageIndex, setImageIndex] = useState(0)
 
   const settings = {
-    // dots: true,
+    dots: true,
     infinite: true,
     lazyLoad: true,
     centerMode: true,
     centerPadding: 1,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     speed: 250,
     autoplaySpeed: 900,
     cssEase: "linear",
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1180,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
             slidesToScroll: 2,
-            initialSlide: 2
+            infinite: true,
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 790,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            initialSlide: 1,
+            infinite: true
+
+          }
+        },
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true
+
           }
         }
       ]
@@ -120,26 +100,9 @@ const Carousel = (props) => {
             </div>
           ))}
         </Slider>
-        <Typography item variant="h3" align= 'center'>
-          <Box sx={{m: 1, p: 1}} >Albums</Box>
-        </Typography>
       </div>
       </>
       );
     }
 
 export default Carousel;
-
-// Saving for when we have spotify data for artists
-// <div className="landingCarousel">
-//   <Slider {...settings}>
-//     {artistsArray.map((img, id) => (
-//       <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
-//         <img src={img} alt={img} />
-//       </div>
-//     ))}
-//   </Slider>
-//   <Typography item variant="h3" align= 'center'>
-//     <Box sx={{m: 1, p: 1}} >Artists</Box>
-//   </Typography>
-// </div>
