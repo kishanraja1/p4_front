@@ -14,6 +14,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
+import { autocompleteClasses } from '@mui/material';
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -85,7 +86,7 @@ const AlbumQuery = (props) => {
     <div>
       <Box className="query-div">
         <Typography variant="h4" component="h4" align= 'center'>Find Albums From Spotify's Extensive Library</Typography>
-        <Typography variant='body'>Can't find an album that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
+        <Typography variant='h6' align='center' >Can't find an album that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
         { showAlbum ?
           <Card className="spotify-card">
             <CardMedia component="img" img className="album-image" src={album.image} height="320" width="320" alt={album.name}/>
@@ -96,9 +97,9 @@ const AlbumQuery = (props) => {
           :
           <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
 
-          <form onSubmit={handleGetSpotifyAlbumData} className="searchButton">
+          <form onSubmit={handleGetSpotifyAlbumData} className="searchForm">
             <CSRFToken />
-            <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{m:3, input:{color: 'white'}}}/>
+            <TextField label="Search Spotify for an Album" name="searchQuery" type="search" onChange={handleChange} fullWidth focused sx={{my:3, input:{color: 'white'}}}/>
             <button><input type="submit"  value="" /><SearchIcon sx={{p: 2}}/></button>
           </form>
           </CardActions>
