@@ -97,7 +97,7 @@ const ArtistQuery = (props) => {
     <div>
       <Box className="query-div">
         <Typography variant="h4" component="h4" align= 'center'>Find Artists From Spotify's Extensive Library</Typography>
-        <Typography variant='h6'>Can't find an artist that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
+        <Typography variant='h6' align='center'>Can't find an artist that you think should be in our database? Search the Spotify library and add it to the collection!</Typography>
         { showArtist ?
           <Card className="spotify-card">
             <CardMedia component="img" img className="artist-image" src={artist.image} height="320" width="320" alt={artist.name}/>
