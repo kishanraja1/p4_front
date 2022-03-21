@@ -259,7 +259,7 @@ const artistsMap = artists.map((artist) => {
             <Box>
               {/* {user && */}
               <>
-                <ArtistQuery handleCreateArtist={handleCreateArtist} />
+                <ArtistQuery handleCreateArtist={handleCreateArtist} artists={artists} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
               </>
               {/* } */}
