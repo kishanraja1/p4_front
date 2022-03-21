@@ -68,13 +68,13 @@ const Carousel = (props) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const settings = {
-    // dots: true,
+    dots: true,
     infinite: true,
     lazyLoad: true,
     centerMode: true,
     centerPadding: 1,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     speed: 250,
     autoplaySpeed: 900,
@@ -84,24 +84,24 @@ const Carousel = (props) => {
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1180,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToScroll: 2,
             infinite: true,
             dots: true
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 790,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            initialSlide: 2
+            initialSlide: 1
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 700,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
