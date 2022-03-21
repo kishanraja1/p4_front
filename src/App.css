@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Slab:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Roboto+Slab:wght@300&display=swap');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
@@ -221,4 +221,8 @@ article > h2 {
   position: relative;
   /* left: 9rem; */
   top: 7.5rem;
+}
+
+.page-head {
+  font-family: 'Bungee', cursive;
 }

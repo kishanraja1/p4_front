@@ -216,7 +216,7 @@ const artistsMap = artists.map((artist) => {
         <TopNav />
         <Switch>
           <Route path="/albums">
-            <Typography variant="h2" component="h1">ALBUMS</Typography>
+            <Typography class='page-head' variant="h2" component="h1">ALBUMS</Typography>
 
             <div>
               <div className="albumQuery">
@@ -258,7 +258,7 @@ const artistsMap = artists.map((artist) => {
               </div>
           </Route>
           <Route path="/artists">
-            <Typography className='pageHeader' variant="h2" component="h1">ARTISTS</Typography>
+            <Typography class='page-head' variant="h2" component="h1">ARTISTS</Typography>
             <Box>
                 {/* {user && */}
                 <>
