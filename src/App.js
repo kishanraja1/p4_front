@@ -94,8 +94,8 @@ const App = () => {
       return (
         <div key={album.id} className="card">
           <img className="album-image" src={album.image} />
-          <Typography variant='h3'>{album.name}</Typography>
-          <Typography variant='h4'>{album.year}</Typography>
+          <h4>{album.name}</h4>
+          <h5>{album.year}</h5>
           <Grid direction="row" container alignItems="center" justify="center">
             { user &&
             <>
@@ -236,7 +236,7 @@ const artistsMap = artists.map((artist) => {
                 <div className='filterDiv'>
                   <div className="search-database1">
                     <TextField label="Search Albums by Title" type="search" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
-                       focused sx={{m:4, input:{color: 'white'}, width: 1/1}}
+                       focused sx={{m: 4, mr:8, input:{color: 'white'}, width: 1/1}}
                       />
                       { searchQuery && searchNameIsActive ?
                         <div>
@@ -246,7 +246,7 @@ const artistsMap = artists.map((artist) => {
                   </div>
                   <div className="search-database2">
                     <TextField type="search" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
-                       focused sx={{m:4, input:{color: 'white'}, width: 1/1}}
+                       focused sx={{m: 4, ml:8, input:{color: 'white'}, width: 1/1}}
                       />
                     { searchQuery && searchYearIsActive ?
                       <div>

@@ -112,7 +112,6 @@ article {
 
 .card {
   min-width: 350px;
-  max-height: 500px;
   padding: 0.25em;
   border: 1px solid #fc9842;
   box-shadow: 5px 5px 50px black;

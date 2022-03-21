@@ -48,6 +48,22 @@ const artistsArray = [
 
 const Carousel = (props) => {
 
+//ARROW FUNCTIONS
+  // const NextArrow = ({onClick}) => {
+  //   return(
+  //     <div className="arrow next" onClick={onClick}>
+  //       <NavigateNextIcon />
+  //     </div>
+  //   )
+  // }
+  // const PrevArrow = ({onClick}) => {
+  //   return(
+  //     <div className="arrow prev" onClick={onClick}>
+  //       <ArrowBackIosIcon />
+  //     </div>
+  //   )
+  // }
+
 //STATE
   const [imageIndex, setImageIndex] = useState(0)
 
@@ -63,6 +79,9 @@ const Carousel = (props) => {
     speed: 250,
     autoplaySpeed: 900,
     cssEase: "linear",
+    // nextArrow: <NextArrow />,
+    // prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
           breakpoint: 1024,
@@ -110,3 +129,17 @@ const Carousel = (props) => {
     }
 
 export default Carousel;
+
+// Saving for when we have spotify data for artists
+// <div className="landingCarousel">
+//   <Slider {...settings}>
+//     {artistsArray.map((img, id) => (
+//       <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
+//         <img src={img} alt={img} />
+//       </div>
+//     ))}
+//   </Slider>
+//   <Typography item variant="h3" align= 'center'>
+//     <Box sx={{m: 1, p: 1}} >Artists</Box>
+//   </Typography>
+// </div>
