@@ -200,18 +200,7 @@ footer h3 {
 
 .filterDiv {
   display: flex;
-  flex-grow: 2;
-  justify-content: space-evenly;
-}
-
-.search-database1 {
-  padding-left: 5em;
-  margin-left: 5em;
-}
-
-.search-database2 {
-  padding-right: 5em;
-  margin-right: 5em;
+  justify-content: center;
 }
 
 .filterContainer {

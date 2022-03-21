@@ -19,9 +19,6 @@ import Greeting from './components/Greeting'
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
 
-// CAROUSEL COMPONENT
-// import Slider from "react-slick";
-
 /////// Material UI \\\\\\\
 //MUI Components
 import {
@@ -234,12 +231,12 @@ const artistsMap = artists.map((artist) => {
                        </>
                    }
               </div>
-              <div className='filterContainer'>
+              <div className='filterContainer' sx={{alignItems:'center'}}>
                 <Typography variant="h4">Search our database</Typography>
                 <div className='filterDiv'>
                   <div className="search-database1">
-                    <TextField label="Search Albums by Title" type="search" size="50" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
-                      fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}
+                    <TextField label="Search Albums by Title" type="search" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
+                       focused sx={{m:4, input:{color: 'white'}, width: 1/1}}
                       />
                       { searchQuery && searchNameIsActive ?
                         <div>
@@ -248,8 +245,8 @@ const artistsMap = artists.map((artist) => {
                         : null}
                   </div>
                   <div className="search-database2">
-                    <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
-                      fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}
+                    <TextField type="search" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
+                       focused sx={{m:4, input:{color: 'white'}, width: 1/1}}
                       />
                     { searchQuery && searchYearIsActive ?
                       <div>
@@ -278,7 +275,7 @@ const artistsMap = artists.map((artist) => {
                   <div className='filterDiv'>
                     <div className="search-database1">
                       <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Name" onChange={handleNameQueryChange}
-                        fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}/>
+                        fullWidth focused sx={{m:3, input:{color: 'white'}, width: 1/1}}/>
                       { searchQuery && searchNameIsActive ?
                         <div>
                         <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
@@ -287,7 +284,7 @@ const artistsMap = artists.map((artist) => {
                     </div>
                     <div className="search-database2">
                       <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Genre" onChange={handleGenreQueryChange}
-                      fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}/>
+                      fullWidth focused sx={{m:3, input:{color: 'white'}, width: 1/1}}/>
                       { searchQuery && searchGenreIsActive ?
                         <div>
                         <Button onClick={handleRemoveSearchQuery} color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
