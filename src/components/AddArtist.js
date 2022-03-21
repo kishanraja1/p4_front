@@ -50,7 +50,7 @@ const AddArtist = (props) => {
   }
 
   return(
-    <div>
+    <div className="add-new-artist">
     <AddCircleIcon className="addCircleIcon" aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50, padding: 1}}/>
       <Modal
         open={open}
