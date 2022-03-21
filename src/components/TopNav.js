@@ -52,7 +52,7 @@ const TopNav = (props)  => {
               }
             }}
           >
-            <MenuIcon />
+            <MenuIcon className='iconBtn'/>
           </IconButton>
         <Drawer
           anchor="left"

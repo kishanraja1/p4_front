@@ -194,7 +194,7 @@ const artistsMap = artists.map((artist) => {
             <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
             <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
           </>
-          } 
+          }
         </Grid>
       </div>
     )
@@ -216,7 +216,6 @@ const artistsMap = artists.map((artist) => {
         <Switch>
           <Route path="/albums">
             <Typography class='page-head' variant="h2" component="h1">ALBUMS</Typography>
-
             <Box>
               {user &&
                 <>

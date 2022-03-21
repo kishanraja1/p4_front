@@ -259,15 +259,35 @@ footer h3 {
 
 /* Greeting */
 
-article > h2 {
+.greeting {
   color: white;
   position: relative;
   /* left: 9rem; */
   top: 7.5rem;
 }
 
+article > img {
+  height: 12rem;
+  width:12rem;
+  border-radius: 50%;
+}
+
 .page-head {
   font-family: 'Bungee', cursive;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  background: midnightblue
+}
+
+.iconBtn {
+  position:fixed;
+  top:1.5rem;
+  left:1.5rem;
+  border: 1px solid pink;
 }
 
 @media (max-width: 480px) {
