@@ -37,7 +37,7 @@ const AddArtist = (props) => {
   }
 
   return(
-    <div className="add-new-album">
+    <div className="add-new-artist">
     <AddCircleIcon className="addCircleIcon" aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50, padding: 1}}/>
       <Dialog
         open={open}
