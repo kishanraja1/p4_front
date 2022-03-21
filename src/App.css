@@ -85,7 +85,8 @@ article {
 
 .content-container {
   display: flex;
-  flex-flow: row-reverse wrap-reverse;
+  overflow: scroll;
+  /* flex-flow: row-reverse wrap-reverse; */
   justify-content: center;
   align-items: center;
   align-content: space-between;
@@ -110,7 +111,8 @@ article {
 }
 
 .card {
-  width: 250px;
+  min-width: 350px;
+  max-height: 500px;
   padding: 0.25em;
   border: 1px solid #fc9842;
   box-shadow: 5px 5px 50px black;

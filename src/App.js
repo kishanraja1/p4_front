@@ -19,6 +19,8 @@ import Greeting from './components/Greeting'
 import AlbumQuery from './components/AlbumQuery'
 import ArtistQuery from './components/ArtistQuery'
 
+// CAROUSEL COMPONENT
+// import Slider from "react-slick";
 
 /////// Material UI \\\\\\\
 //MUI Components
@@ -34,9 +36,12 @@ import {
 //MUI Icons
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const App = () => {
   const { user, isAuthenticated } = useAuth0()
+
 /////// STATE \\\\\\\
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
@@ -44,7 +49,8 @@ const App = () => {
   const [searchNameIsActive, setSearchNameIsActive] = useState(true)
   const [searchGenreIsActive, setSearchGenreIsActive] = useState(false)
   const [searchYearIsActive, setSearchYearIsActive] = useState(false)
-
+  //CAROUSEL STATE
+  const [imageIndex, setImageIndex] = useState(0)
 
 /////// ALBUM CRUD \\\\\\\
   const getAlbums = () => {
@@ -91,8 +97,8 @@ const App = () => {
       return (
         <div key={album.id} className="card">
           <img className="album-image" src={album.image} />
-          <h3>{album.name}</h3>
-          <h4>{album.year}</h4>
+          <Typography variant='h3'>{album.name}</Typography>
+          <Typography variant='h4'>{album.year}</Typography>
           <Grid direction="row" container alignItems="center" justify="center">
             { user &&
             <>
@@ -137,9 +143,6 @@ const App = () => {
     // artistSearchEl.value = ''
     // albumSearchEl.value = ''
   }
-
-// SAVING FOR MULTI_MODEL <Typography component="h4">{album.artist}</Typography>
-
 
 ///////////////////// ARTIST CRUD ///////////////////
   const getArtists = () => {
