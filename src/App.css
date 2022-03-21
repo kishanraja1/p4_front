@@ -219,6 +219,7 @@ footer h3 {
   justify-content: space-evenly;
   align-items: center;
   padding: 0.25em;
+  z-index: 10;
 }
 
 .engineer {
@@ -261,15 +262,15 @@ footer h3 {
 /* Greeting */
 article {
   position: relative;
-  float: right;
-  text-align: right;
+  float: left;
+  text-align: left;
 }
 
 .greeting {
   color: white;
   position: relative;
   /* left: 9rem; */
-  top: -3em;
+  top: 0em;
   font-size: 1em;
 }
 
@@ -323,5 +324,16 @@ footer {
     box-shadow: 5px 5px 50px black;
     padding: 1em;
     width: 90vw;
+  }
+}
+
+@media (max-width: 600px) {
+  article {
+    float: right;
+    text-align: right;
+  }
+
+  .greeting {
+    top: -3em;
   }
 }
