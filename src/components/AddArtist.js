@@ -26,7 +26,6 @@ const styleModal = {
   color: '#19196E'
 };
 
-
 const AddArtist = (props) => {
   const { user, isAuthenticated } = useAuth0()
   /////// STATE \\\\\\\
@@ -55,8 +54,9 @@ const AddArtist = (props) => {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="Add Artists Here"
+        aria-describedby="Add artists to the database"
+        maxWidth="xs"
         className="modal"
       >
         <Box component="form" sx={styleModal} onSubmit={handleSubmitArtist}>

@@ -103,17 +103,3 @@ const Carousel = (props) => {
     }
 
 export default Carousel;
-
-// Saving for when we have spotify data for artists
-// <div className="landingCarousel">
-//   <Slider {...settings}>
-//     {artistsArray.map((img, id) => (
-//       <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
-//         <img src={img} alt={img} />
-//       </div>
-//     ))}
-//   </Slider>
-//   <Typography item variant="h3" align= 'center'>
-//     <Box sx={{m: 1, p: 1}} >Artists</Box>
-//   </Typography>
-// </div>
