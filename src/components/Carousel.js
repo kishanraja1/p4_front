@@ -35,34 +35,13 @@ import parlamient from "./carouImgs/parlamient.jpg"
 import sgtpepp from "./carouImgs/sgtpepp.jpg"
 import tswift from "./carouImgs/tswift.jpg"
 import ye from "./carouImgs/ye.jpg"
-  //Artists
 
 /// IMG ARRAY FOR MAPPING
 const albumsArray = [big, blink, boss, bowie, cardi, cash, clash, drake,
   duran, fleetwood, floyd, gaga, joydivision, judas, kendrick, lizzo,
   metallica, miles, msjackson, nas, nodoubt, parlamient, sgtpepp, tswift, ye,]
 
-const artistsArray = [
-
-]
-
 const Carousel = (props) => {
-
-//ARROW FUNCTIONS
-  // const NextArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow next" onClick={onClick}>
-  //       <NavigateNextIcon />
-  //     </div>
-  //   )
-  // }
-  // const PrevArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow prev" onClick={onClick}>
-  //       <ArrowBackIosIcon />
-  //     </div>
-  //   )
-  // }
 
 //STATE
   const [imageIndex, setImageIndex] = useState(0)
@@ -74,7 +53,7 @@ const Carousel = (props) => {
     centerMode: true,
     centerPadding: 1,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     speed: 250,
     autoplaySpeed: 900,
@@ -82,10 +61,10 @@ const Carousel = (props) => {
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1180,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToScroll: 2,
             infinite: true,
           }
         },
@@ -100,7 +79,7 @@ const Carousel = (props) => {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 700,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
