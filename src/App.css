@@ -78,11 +78,6 @@ article {
   opacity: 1;
 }
 
-
-.albumQuery{
-  width: 80rem;
-}
-
 .searchButton {
   display: grid;
   grid-template-columns: 9fr 1fr;
@@ -109,7 +104,7 @@ article {
 }
 
 .query-div {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   padding: 1em;
 }
@@ -205,4 +200,3 @@ footer h3 {
   padding: 0.5em;
   margin: 0 auto;
 }
-
