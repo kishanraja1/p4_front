@@ -224,20 +224,18 @@ const artistsMap = artists.map((artist) => {
             <Typography variant="h2" component="h1">ALBUMS</Typography>
 
             <div>
-              <div className="albumQuery">
-                 {/* {user && */}
-                        <>
-                    <AlbumQuery handleCreate={handleCreate}/>
-                    <AddAlbum handleCreate={handleCreate} />
-                       </>
-                   {/* } */}
-              </div>
+              {/* {user && */}
+                <>
+            <AlbumQuery handleCreate={handleCreate}/>
+            <AddAlbum handleCreate={handleCreate} />
+                </>
+              {/* } */}
               <div className='filterContainer' sx={{alignItems:'center'}}>
                 <Typography variant="h4">Search our database</Typography>
                 <div className='filterDiv'>
                   <div className="search-database1">
                     <TextField label="Search Albums by Title" type="search" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
-                       focused sx={{m: 4, mr:8, input:{color: 'white'}, width: 1/1}}
+                       focused sx={{my: 4, input:{color: 'white'}, width: 1/1}}
                       />
                       { searchQuery && searchNameIsActive ?
                         <div>
@@ -247,7 +245,7 @@ const artistsMap = artists.map((artist) => {
                   </div>
                   <div className="search-database2">
                     <TextField type="search" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
-                       focused sx={{m: 4, ml:8, input:{color: 'white'}, width: 1/1}}
+                       focused sx={{my: 4, input:{color: 'white'}, width: 1/1}}
                       />
                     { searchQuery && searchYearIsActive ?
                       <div>
@@ -265,38 +263,38 @@ const artistsMap = artists.map((artist) => {
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>
             <Box>
-                {/* {user && */}
-                <>
-                  <ArtistQuery handleCreateArtist={handleCreateArtist} />
-                  <AddArtist handleCreateArtist={handleCreateArtist} />
-                </>
-                {/* } */}
-                <div className='filterContainer'>
-                  <Typography variant="h4">Search our database</Typography>
-                  <div className='filterDiv'>
-                    <div className="search-database1">
-                      <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Name" onChange={handleNameQueryChange}
-                        fullWidth focused sx={{m:3, input:{color: 'white'}, width: 1/1}}/>
-                      { searchQuery && searchNameIsActive ?
-                        <div>
-                        <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
-                        </div>
-                        : null}
-                    </div>
-                    <div className="search-database2">
-                      <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Genre" onChange={handleGenreQueryChange}
+              {/* {user && */}
+              <>
+                <ArtistQuery handleCreateArtist={handleCreateArtist} />
+                <AddArtist handleCreateArtist={handleCreateArtist} />
+              </>
+              {/* } */}
+              <div className='filterContainer' sx={{alignItems: 'center'}}>
+                <Typography variant="h4">Search our database</Typography>
+                <div className='filterDiv'>
+                  <div className="search-database1">
+                    <TextField type="search" name="searchQuery" className="search-text" label="Search Artists by Name" onChange={handleNameQueryChange}
                       fullWidth focused sx={{m:3, input:{color: 'white'}, width: 1/1}}/>
-                      { searchQuery && searchGenreIsActive ?
-                        <div>
-                        <Button onClick={handleRemoveSearchQuery} color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
-                        </div>
-                        : null}
-                    </div>
+                    { searchQuery && searchNameIsActive ?
+                      <div>
+                      <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                      </div>
+                      : null}
+                  </div>
+                  <div className="search-database2">
+                    <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Genre" onChange={handleGenreQueryChange}
+                    fullWidth focused sx={{m:3, input:{color: 'white'}, width: 1/1}}/>
+                    { searchQuery && searchGenreIsActive ?
+                      <div>
+                      <Button onClick={handleRemoveSearchQuery} color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                      </div>
+                      : null}
                   </div>
                 </div>
-                <div className="content-container">
-                  {artistsMap}
-                </div>
+              </div>
+              <div className="content-container">
+                {artistsMap}
+              </div>
             </Box>
           </Route>
           <Route path="/profile">
