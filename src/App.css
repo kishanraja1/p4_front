@@ -175,8 +175,22 @@ article {
   border-radius: 30px;
 }
 
+
 .card-add-btn:hover {
   width: 200px;
+}
+
+.card-add-btn-open {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  width: fit-content;
+  padding: 0 10px;
+  background: rgba(0,0,0,.8);
+  color: #FF0000;
+  border-radius: 30px;
+  cursor: default;
 }
 
 .card-back-btn {

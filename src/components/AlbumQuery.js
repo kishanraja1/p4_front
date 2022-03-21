@@ -82,6 +82,18 @@ const AlbumQuery = (props) => {
     setShowAlbum(false)
   }
 
+  const handleAddButtonRender = (newAlbum) => {
+    if (props.albums.every(item => item.name !== newAlbum.name)) {
+      return (
+        <button aria-label="Add to Database"  className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+      )
+    } else {
+      return (
+        <button aria-label="Already in database"  className="card-add-btn-open" ><span className="btn-text">Already in database</span></button>
+      )
+    }
+  }
+
   return (
     <div>
       <Box className="query-div">
@@ -91,7 +103,7 @@ const AlbumQuery = (props) => {
           <Card className="spotify-card">
             <CardMedia component="img" img className="album-image" src={album.image} height="320" width="320" alt={album.name}/>
             <Typography gutterBottom variant="h5" component="div">{album.name} ({album.year})</Typography>
-            <button aria-label="Add to Database"  className="card-add-btn" onClick={() => {handleCreateAlbumFromSpotify(album)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+            {handleAddButtonRender(album)}
             <button aria-label="Go Back" className="card-back-btn" onClick={() => {setShowAlbum(false)}}><ClearIcon sx={{color: '#FF0000'}}/></button>
           </Card>
           :

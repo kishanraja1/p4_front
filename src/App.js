@@ -220,7 +220,7 @@ const artistsMap = artists.map((artist) => {
             <Box>
               {user &&
                 <>
-                <AlbumQuery handleCreate={handleCreate}/>
+                <AlbumQuery handleCreate={handleCreate} albums={albums}/>
                 <AddAlbum handleCreate={handleCreate} />
                 </>
               }
@@ -259,7 +259,7 @@ const artistsMap = artists.map((artist) => {
             <Box>
               {user &&
               <>
-                <ArtistQuery handleCreateArtist={handleCreateArtist} />
+                <ArtistQuery handleCreateArtist={handleCreateArtist} artists={artists} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
               </>
               }

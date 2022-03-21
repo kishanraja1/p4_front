@@ -81,6 +81,18 @@ const ArtistQuery = (props) => {
     setShowArtist(false)
   }
 
+  const handleAddButtonRender = (newArtist) => {
+    if (props.artists.every(item => item.name !== newArtist.name)) {
+      return (
+        <button aria-label="Add to Database"  className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}><AddIcon sx={{color: '#FF0000'}}/> <span className="btn-text">Add to database</span></button>
+      )
+    } else {
+      return (
+        <button aria-label="Already in database"  className="card-add-btn-open" ><span className="btn-text">Already in database</span></button>
+      )
+    }
+  }
+
   return (
     <div>
       <Box className="query-div">
@@ -91,10 +103,8 @@ const ArtistQuery = (props) => {
             <CardMedia component="img" img className="artist-image" src={artist.image} height="320" width="320" alt={artist.name}/>
             <Typography gutterBottom variant="h5" component="div">{artist.name}</Typography>
             <Typography variant="subtitle">{artist.genre}</Typography>
-            <CardActions>
-            <button aria-label="Add to Database" className="card-add-btn" onClick={() => {handleCreateArtistFromSpotify(artist)}}> <AddIcon sx={{color: '#FF0000'}}/><span className="btn-text">Add to database</span></button>
+            {handleAddButtonRender(artist)}
             <button aria-label="Go Back" className="card-back-btn" onClick={() => {setShowArtist(false)}}><ClearIcon sx={{color: '#FF0000'}}/></button>
-            </CardActions>
           </Card>
           :
           <CardActions  sx={{alignItems: 'center', color: "#ADD8E6"}}>
