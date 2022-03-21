@@ -270,12 +270,28 @@ const artistsMap = artists.map((artist) => {
                   <AddArtist handleCreateArtist={handleCreateArtist} />
                 </>
                 }
-                <div className="search-database">
-                  <h4>Search our database</h4>
-                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search artists by name" onChange={handleNameQueryChange} />
-                  { searchQuery && searchNameIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
-                  <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search artists by genre" onChange={handleGenreQueryChange} />
-                  { searchQuery && searchGenreIsActive ? <button onClick={handleRemoveSearchQuery}>Clear Search</button> : null}
+                <div className='filterContainer'>
+                  <Typography variant="h4">Search our database</Typography>
+                  <div className='filterDiv'>
+                    <div className="search-database1">
+                      <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Name" onChange={handleNameQueryChange}
+                        fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}/>
+                      { searchQuery && searchNameIsActive ?
+                        <div>
+                        <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                        </div>
+                        : null}
+                    </div>
+                    <div className="search-database2">
+                      <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Artists by Genre" onChange={handleGenreQueryChange}
+                      fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}/>
+                      { searchQuery && searchGenreIsActive ?
+                        <div>
+                        <Button onClick={handleRemoveSearchQuery} color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                        </div>
+                        : null}
+                    </div>
+                  </div>
                 </div>
                 <div className="content-container">
                   {artistsMap}
