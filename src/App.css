@@ -78,6 +78,13 @@ article {
   opacity: 1;
 }
 
+
+
+.albumQuery{
+  width: 80%;
+}
+
+
 .searchButton {
   display: grid;
   grid-template-columns: 9fr 1fr;

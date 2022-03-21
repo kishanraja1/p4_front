@@ -222,6 +222,7 @@ const artistsMap = artists.map((artist) => {
         <Switch>
           <Route path="/albums">
             <Typography variant="h2" component="h1">ALBUMS</Typography>
+
             <div>
               <div className="albumQuery">
                  {user &&
@@ -259,7 +260,7 @@ const artistsMap = artists.map((artist) => {
               <div className="content-container">
                 {albumsMap}
               </div>
-            </div>
+            </Box>
           </Route>
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>

@@ -13,7 +13,7 @@ ReactDOM.render(
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      redirectUri={'https://murmuring-forest-19651.herokuapp.com/albums'}
+      redirectUri={window.location.origin}
     >
     <App />
     </Auth0Provider>
