@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Slab:wght@300&display=swap');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@300&family=Roboto+Slab:wght@300&display=swap');
+
 
 *,
 *:before,
@@ -82,12 +83,6 @@ article {
   transform: scale(1.0);
   z-index: 3;
   opacity: 1;
-}
-
-
-
-.albumQuery{
-  width: 80%;
 }
 
 
@@ -226,8 +221,4 @@ article > h2 {
   position: relative;
   /* left: 9rem; */
   top: 7.5rem;
-}
-
-.pageHeader {
-  font-family: 'Bungee', cursive;
 }
