@@ -97,12 +97,12 @@ const App = () => {
           <h4>{album.name}</h4>
           <h5>{album.year}</h5>
           <Grid direction="row" container alignItems="center" justify="center">
-            {/* { user && */}
+            { user &&
             <>
               <EditAlbum handleUpdate={handleUpdate} album={album} />
               <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
             </>
-            {/* } */}
+            }
           </Grid>
         </div>
       )
@@ -190,12 +190,12 @@ const artistsMap = artists.map((artist) => {
         <h4>{artist.name}</h4>
         <h5>{artist.genre}</h5>
         <Grid direction="row" container alignItems="center" justify="center">
-          {/* { user && */}
+          { user &&
           <>
             <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
             <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
           </>
-          {/* } */}
+          }
         </Grid>
       </div>
     )
@@ -219,12 +219,12 @@ const artistsMap = artists.map((artist) => {
             <Typography class='page-head' variant="h2" component="h1">ALBUMS</Typography>
 
             <Box>
-              {/* {user && */}
+              {user &&
                 <>
                 <AlbumQuery handleCreate={handleCreate}/>
                 <AddAlbum handleCreate={handleCreate} />
                 </>
-              {/* } */}
+              }
               <div className='filterContainer' sx={{alignItems:'center'}}>
                 <Typography variant="h4">Search our database</Typography>
                 <div className='filterDiv'>
@@ -258,12 +258,12 @@ const artistsMap = artists.map((artist) => {
           <Route path="/artists">
             <Typography class='page-head' variant="h2" component="h1">ARTISTS</Typography>
             <Box>
-              {/* {user && */}
+              {user &&
               <>
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
               </>
-              {/* } */}
+              }
               <div className='filterContainer' sx={{alignItems: 'center'}}>
                 <Typography variant="h4">Search our database</Typography>
                 <div className='filterDiv'>
