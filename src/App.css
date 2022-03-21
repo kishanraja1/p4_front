@@ -77,18 +77,21 @@ article {
 .slide {
   transform: scale(0.5);
   transition: transform 250ms;
-  opacity: .8;
+  opacity: .5;
+  z-index: -1;
 }
 
 .activeSlide {
   transform: scale(1.0);
-  z-index: 3;
+  z-index: 8;
   opacity: 1;
 }
 
+.albumQuery{
+  width: 80%;
+}
 
 .searchForm {
-
   display: grid;
   grid-template-columns: 9fr 1fr;
   margin-left: auto;
