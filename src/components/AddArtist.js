@@ -6,7 +6,6 @@ import {useAuth0} from '@auth0/auth0-react'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -15,20 +14,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 //MUI Icons
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-//MODAL Style
-const styleModal = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 600,
-  bgcolor: '#E8665D',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  color: '#19196E'
-};
-
 const AddArtist = (props) => {
   const { user, isAuthenticated } = useAuth0()
   /////// STATE \\\\\\\
@@ -36,7 +21,7 @@ const AddArtist = (props) => {
   const [artist, setArtist] = useState(emptyArtist)
   const [open, setOpen] = useState(false);
 
-  /////// MODAL FUNC \\\\\\\
+  /////// DIALOG FUNC \\\\\\\
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -52,7 +37,7 @@ const AddArtist = (props) => {
   }
 
   return(
-    <div>
+    <div className="add-new-album">
     <AddCircleIcon className="addCircleIcon" aria-label="Add New Music" onClick={handleOpen} color="primary" sx={{ fontSize: 50, padding: 1}}/>
       <Dialog
         open={open}
@@ -61,7 +46,7 @@ const AddArtist = (props) => {
         aria-describedby="Add artists to the database"
         maxWidth="md"
         className="modal"
-        PaperProps={{sx: {bgcolor: '#ff80ab'}}}
+        PaperProps={{sx: {bgcolor: '#82b1ff'}}}
       >
           <DialogTitle variant="h6">Add an Artist</DialogTitle>
           <DialogContent>
