@@ -218,12 +218,12 @@ const artistsMap = artists.map((artist) => {
             <Typography class='page-head' variant="h2" component="h1">ALBUMS</Typography>
 
             <Box>
-              {user &&
+              {/* {user && */}
                 <>
-                <AlbumQuery handleCreate={handleCreate}/>
+                <AlbumQuery handleCreate={handleCreate} albums={albums}/>
                 <AddAlbum handleCreate={handleCreate} />
                 </>
-              }
+              {/* } */}
               <div className='filterContainer' sx={{alignItems:'center'}}>
                 <Typography variant="h4">Search our database</Typography>
                 <div className='filterDiv'>
@@ -257,12 +257,12 @@ const artistsMap = artists.map((artist) => {
           <Route path="/artists">
             <Typography class='page-head' variant="h2" component="h1">ARTISTS</Typography>
             <Box>
-              {user &&
+              {/* {user && */}
               <>
                 <ArtistQuery handleCreateArtist={handleCreateArtist} />
                 <AddArtist handleCreateArtist={handleCreateArtist} />
               </>
-              }
+              {/* } */}
               <div className='filterContainer' sx={{alignItems: 'center'}}>
                 <Typography variant="h4">Search our database</Typography>
                 <div className='filterDiv'>
