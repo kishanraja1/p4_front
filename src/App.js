@@ -220,15 +220,13 @@ const artistsMap = artists.map((artist) => {
         <Switch>
           <Route path="/albums">
             <Typography variant="h2" component="h1">ALBUMS</Typography>
-            <div>
-              <div className="albumQuery">
-                 {user &&
-                        <>
-                    <AlbumQuery handleCreate={handleCreate}/>
-                    <AddAlbum handleCreate={handleCreate} />
-                       </>
-                   }
-              </div>
+            <Box>
+              {user &&
+                <>
+                  <AlbumQuery handleCreate={handleCreate}/>
+                  <AddAlbum handleCreate={handleCreate} />
+                </>
+              }
               <div className="search-database">
                 <h4>Search our database</h4>
                 <input type="search" size="50" name="searchQuery" className="search-text" placeholder="Search albums by album title" onChange={handleNameQueryChange}/>
@@ -239,7 +237,7 @@ const artistsMap = artists.map((artist) => {
               <div className="content-container">
                 {albumsMap}
               </div>
-            </div>
+            </Box>
           </Route>
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>
