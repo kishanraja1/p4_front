@@ -1,10 +1,16 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@300&family=Roboto+Slab:wght@300&display=swap');
+
 *,
 *:before,
 *:after {
   margin: 0;
   padding: 0;
+}
+
+*{
+  font-family: 'Roboto Slab', serif;
 }
 
 body {
@@ -211,4 +217,17 @@ footer h3 {
 
 .filterContainer {
   text-align: center;
+}
+
+/* Greeting */
+
+article > h2 {
+  color: white;
+  position: relative;
+  /* left: 9rem; */
+  top: 7.5rem;
+}
+
+.pageHeader {
+  font-family: 'Bungee', cursive;
 }

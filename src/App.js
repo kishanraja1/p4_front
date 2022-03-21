@@ -213,11 +213,6 @@ const artistsMap = artists.map((artist) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <Router>
-    <div>
-    <LoginButton />
-    <LogoutButton />
-    <Greeting />
-    </div>
         <TopNav />
         <Switch>
           <Route path="/albums">
@@ -263,7 +258,7 @@ const artistsMap = artists.map((artist) => {
               </div>
           </Route>
           <Route path="/artists">
-            <Typography variant="h2" component="h1">ARTISTS</Typography>
+            <Typography className='pageHeader' variant="h2" component="h1">ARTISTS</Typography>
             <Box>
                 {/* {user && */}
                 <>
