@@ -68,7 +68,7 @@ const Carousel = (props) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const settings = {
-    // dots: true,
+    dots: true,
     infinite: true,
     lazyLoad: true,
     centerMode: true,
@@ -79,8 +79,6 @@ const Carousel = (props) => {
     speed: 250,
     autoplaySpeed: 900,
     cssEase: "linear",
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
@@ -89,22 +87,25 @@ const Carousel = (props) => {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 790,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1,
+            infinite: true
+
           }
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            infinite: true
+
           }
         }
       ]
@@ -120,26 +121,9 @@ const Carousel = (props) => {
             </div>
           ))}
         </Slider>
-        <Typography item variant="h3" align= 'center'>
-          <Box sx={{m: 1, p: 1}} >Albums</Box>
-        </Typography>
       </div>
       </>
       );
     }
 
 export default Carousel;
-
-// Saving for when we have spotify data for artists
-// <div className="landingCarousel">
-//   <Slider {...settings}>
-//     {artistsArray.map((img, id) => (
-//       <div className={id === imageIndex ? "slide activeSlide" : "slide"}>
-//         <img src={img} alt={img} />
-//       </div>
-//     ))}
-//   </Slider>
-//   <Typography item variant="h3" align= 'center'>
-//     <Box sx={{m: 1, p: 1}} >Artists</Box>
-//   </Typography>
-// </div>
