@@ -260,7 +260,7 @@ const artistsMap = artists.map((artist) => {
               <div className="content-container">
                 {albumsMap}
               </div>
-            </Box>
+            </div>
           </Route>
           <Route path="/artists">
             <Typography variant="h2" component="h1">ARTISTS</Typography>
