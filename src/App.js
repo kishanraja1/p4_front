@@ -231,26 +231,30 @@ const artistsMap = artists.map((artist) => {
                        </>
                    }
               </div>
-              <div className="search-database">
+              <div className='filterContainer'>
                 <Typography variant="h4">Search our database</Typography>
-                <TextField label="Search Albums by Title" type="search" size="50" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
-                  halfWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}
-                  />
-                  { searchQuery && searchNameIsActive ?
-                    <div>
-                      <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='outlined'>Clear Search</Button>
-                    </div>
-                    : null}
-              </div>
-              <div >
-                <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
-                  halfWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}
-                  />
-                { searchQuery && searchYearIsActive ?
-                  <div>
-                    <Button onClick={handleRemoveSearchQuery} color='secondary' variant='outlined'>Clear Search</Button>
+                <div className='filterDiv'>
+                  <div className="search-database1">
+                    <TextField label="Search Albums by Title" type="search" size="50" name="searchQuery" className="search-text" onChange={handleNameQueryChange}
+                      fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}
+                      />
+                      { searchQuery && searchNameIsActive ?
+                        <div>
+                          <Button onClick={handleRemoveSearchQuery}  color='secondary' variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                        </div>
+                        : null}
                   </div>
-                   : null}
+                  <div className="search-database2">
+                    <TextField type="search" size="50" name="searchQuery" className="search-text" label="Search Albums by Year" onChange={handleYearQueryChange}
+                      fullWidth focused sx={{m:3, input:{color: 'white'}, alignItems: 'center'}}
+                      />
+                    { searchQuery && searchYearIsActive ?
+                      <div>
+                        <Button onClick={handleRemoveSearchQuery} color='secondary'  variant='contained' sx={{mb: 2}}>Clear Search</Button>
+                      </div>
+                       : null}
+                  </div>
+                </div>
               </div>
               <div className="content-container">
                 {albumsMap}
