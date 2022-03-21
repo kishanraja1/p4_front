@@ -51,7 +51,7 @@ article {
   margin-bottom: 2rem;
 }
 
-.add-new-album {
+.add-new-album, .add-new-artist {
   margin-bottom: 2em;
   text-align: center;
 }
@@ -95,6 +95,7 @@ article {
   overflow-x: scroll;
   /* flex-flow: row-reverse wrap-reverse; */
   /* flex-direction: row-reverse; */
+  /* flex-wrap: wrap-reverse; */
   justify-content: flex-start;
   align-items: center;
   align-content: space-between;
@@ -102,18 +103,27 @@ article {
   box-shadow: 5px 5px 50px black;
   padding: 2em;
   width: fit-content;
+  min-width: 80vw;
   max-width: 80vw;
   margin: 0 auto 2em;
   background-color: #fc9842;
   background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
+  position: relative;
 }
 
 .album-image, .artist-image {
   width: 100%;
   min-height: 300px;
   max-height: 300px;
-  object-fit: cover;
   object-position: top;
+}
+
+.album-image {
+  object-fit: contain;
+}
+
+.artist-image {
+  object-fit: cover;
 }
 
 .query-div {
@@ -241,7 +251,7 @@ footer h3 {
   
   .content-container {
     overflow: auto;
-    flex-flow: row wrap;
+    flex-flow: row-reverse wrap-reverse;
     /* flex-direction: row-reverse; */
     justify-content: center;
     align-items: center;

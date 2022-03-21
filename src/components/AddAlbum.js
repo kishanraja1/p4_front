@@ -59,7 +59,7 @@ const AddAlbum = (props) => {
         aria-describedby="modal-modal-description"
         className="modal"
       >
-        <Box component="form" sx={styleModal} onSubmit={handleSubmit}>
+        <Box component="form" sx={styleModal} onSubmit={handleSubmit} >
           <Typography variant="h6">
             Add Album
           </Typography>
