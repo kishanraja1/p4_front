@@ -251,7 +251,8 @@ article > h2 {
 
 .page-head {
   font-family: 'Bungee', cursive;
-=======
+}
+
 @media (max-width: 480px) {
   header {
     max-height: 15vh;
@@ -266,7 +267,7 @@ article > h2 {
     align-items: center;
     gap: 0;
   }
-  
+
   .content-container {
     overflow: auto;
     flex-flow: row-reverse wrap-reverse;

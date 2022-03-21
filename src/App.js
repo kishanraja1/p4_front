@@ -102,7 +102,7 @@ const App = () => {
               <EditAlbum handleUpdate={handleUpdate} album={album} />
               <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
             </>
-            } 
+            }
 
           </Grid>
         </div>
@@ -194,11 +194,7 @@ const artistsMap = artists.map((artist) => {
             <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
             <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
           </>
-<<<<<<< HEAD
           } 
-=======
-          }
->>>>>>> 2ae91aaffc31b8e0bdec67ea65634b7748645181
         </Grid>
       </div>
     )
