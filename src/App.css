@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Roboto+Slab:wght@300&display=swap');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+
+
 *,
 *:before,
 *:after {
   margin: 0;
   padding: 0;
+}
+
+*{
+  font-family: 'Roboto Slab', serif;
 }
 
 body {
@@ -79,11 +86,9 @@ article {
   opacity: 1;
 }
 
-.albumQuery{
-  width: 100%;
-}
 
 .searchForm {
+
   display: grid;
   grid-template-columns: 9fr 1fr;
   margin-left: auto;
@@ -234,6 +239,19 @@ footer h3 {
   text-align: center;
 }
 
+
+/* Greeting */
+
+article > h2 {
+  color: white;
+  position: relative;
+  /* left: 9rem; */
+  top: 7.5rem;
+}
+
+.page-head {
+  font-family: 'Bungee', cursive;
+=======
 @media (max-width: 480px) {
   header {
     max-height: 15vh;

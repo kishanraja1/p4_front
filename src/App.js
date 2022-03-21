@@ -103,6 +103,7 @@ const App = () => {
               <DeleteIcon aria-label="delete" onClick={() => {handleDelete(album)}} sx={{color: "#ec407a"}}/>
             </>
             } 
+
           </Grid>
         </div>
       )
@@ -193,7 +194,11 @@ const artistsMap = artists.map((artist) => {
             <EditArtist handleUpdateArtist= {handleUpdateArtist} artist={artist}/>
             <DeleteIcon aria-label="delete" onClick={() => {handleDeleteArtist(artist)}} color="error" sx={{color: "#ec407a"}}/>
           </>
+<<<<<<< HEAD
           } 
+=======
+          }
+>>>>>>> 2ae91aaffc31b8e0bdec67ea65634b7748645181
         </Grid>
       </div>
     )
@@ -211,15 +216,10 @@ const artistsMap = artists.map((artist) => {
 /////// RENDER PRIMARY COMPONENT \\\\\\\
   return (
     <Router>
-    <div>
-    <LoginButton />
-    <LogoutButton />
-    <Greeting />
-    </div>
         <TopNav />
         <Switch>
           <Route path="/albums">
-            <Typography variant="h2" component="h1">ALBUMS</Typography>
+            <Typography class='page-head' variant="h2" component="h1">ALBUMS</Typography>
 
             <Box>
               {user &&
@@ -259,7 +259,7 @@ const artistsMap = artists.map((artist) => {
             </Box>
           </Route>
           <Route path="/artists">
-            <Typography variant="h2" component="h1">ARTISTS</Typography>
+            <Typography class='page-head' variant="h2" component="h1">ARTISTS</Typography>
             <Box>
               {user &&
               <>
