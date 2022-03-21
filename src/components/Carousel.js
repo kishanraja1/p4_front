@@ -35,34 +35,13 @@ import parlamient from "./carouImgs/parlamient.jpg"
 import sgtpepp from "./carouImgs/sgtpepp.jpg"
 import tswift from "./carouImgs/tswift.jpg"
 import ye from "./carouImgs/ye.jpg"
-  //Artists
 
 /// IMG ARRAY FOR MAPPING
 const albumsArray = [big, blink, boss, bowie, cardi, cash, clash, drake,
   duran, fleetwood, floyd, gaga, joydivision, judas, kendrick, lizzo,
   metallica, miles, msjackson, nas, nodoubt, parlamient, sgtpepp, tswift, ye,]
 
-const artistsArray = [
-
-]
-
 const Carousel = (props) => {
-
-//ARROW FUNCTIONS
-  // const NextArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow next" onClick={onClick}>
-  //       <NavigateNextIcon />
-  //     </div>
-  //   )
-  // }
-  // const PrevArrow = ({onClick}) => {
-  //   return(
-  //     <div className="arrow prev" onClick={onClick}>
-  //       <ArrowBackIosIcon />
-  //     </div>
-  //   )
-  // }
 
 //STATE
   const [imageIndex, setImageIndex] = useState(0)
@@ -79,8 +58,6 @@ const Carousel = (props) => {
     speed: 250,
     autoplaySpeed: 900,
     cssEase: "linear",
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
         {
@@ -120,9 +97,6 @@ const Carousel = (props) => {
             </div>
           ))}
         </Slider>
-        <Typography item variant="h3" align= 'center'>
-          <Box sx={{m: 1, p: 1}} >Albums</Box>
-        </Typography>
       </div>
       </>
       );
