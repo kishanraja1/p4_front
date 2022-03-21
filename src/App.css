@@ -79,9 +79,11 @@ article {
 }
 
 
+
 .albumQuery{
   width: 80%;
 }
+
 
 .searchButton {
   display: grid;
@@ -90,7 +92,8 @@ article {
 
 .content-container {
   display: flex;
-  flex-flow: row-reverse wrap-reverse;
+  overflow: scroll;
+  /* flex-flow: row-reverse wrap-reverse; */
   justify-content: center;
   align-items: center;
   align-content: space-between;
@@ -109,13 +112,13 @@ article {
 }
 
 .query-div {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   padding: 1em;
 }
 
 .card {
-  width: 250px;
+  min-width: 350px;
   padding: 0.25em;
   border: 1px solid #fc9842;
   box-shadow: 5px 5px 50px black;
@@ -196,13 +199,16 @@ footer h3 {
   padding-right: 0.5em;
 }
 
-.search-database {
-  margin: 0 auto 1em;
-  text-align: center;
-}
-
 .search-database button {
   padding: 0.5em;
   margin: 0 auto;
 }
 
+.filterDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.filterContainer {
+  text-align: center;
+}
