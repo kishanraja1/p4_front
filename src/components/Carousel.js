@@ -121,7 +121,6 @@ const Carousel = (props) => {
           ))}
         </Slider>
         <Typography item variant="h3" align= 'center'>
-          <Box sx={{m: 1, p: 1}} >Albums</Box>
         </Typography>
       </div>
       </>

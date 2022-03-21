@@ -1,5 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
+import LoginButton from './LoginButton'
+import LogoutButton from './LogoutButton'
+import Greeting from './Greeting'
 
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -97,12 +100,15 @@ const TopNav = (props)  => {
               left: "50%",
               transform: "translate(-50%, 0)"}}
             >
-              <Button variant="contained" sx={{m:1, width: .5}}>Register</Button>
-              <Button variant="outlined" sx={{m:1, width: .5}}>Login</Button>
+              <Button variant="outlined" sx={{m:1, width: 1}}>
+              <LoginButton />
+              <LogoutButton />
+              </Button>
             </Box>
           </Box>
         </Drawer>
         </Toolbar>
+        <Greeting />
         </Container>
       </AppBar>
     </Box>
