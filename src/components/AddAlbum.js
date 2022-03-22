@@ -65,10 +65,10 @@ const AddAlbum = (props) => {
               name="image" onChange={handleChange}
               variant="outlined" label="Image URL"
               sx={{ m: 1, color:'#19196E'}}/>
+            <Button variant="outlined" sx={{margin: 2, border: 2, color:'#19196E'}}>
+              <input type="submit"/>
+            </Button>
           </Box>
-          <Button variant="outlined" sx={{margin: 2, border: 2, color:'#19196E'}}>
-            <input type="submit"/>
-          </Button>
         </DialogContent>
       </Dialog>
     </div>
